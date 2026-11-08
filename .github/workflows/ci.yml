@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  flutter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.47.9'
+          cache: true
+      - run: flutter pub get
+      - run: dart format --output=none --set-exit-if-changed .
+      - name: flutter gen-l10n
+        if: hashFiles('l10n.yaml') != ''
+        run: flutter gen-l10n
+        continue-on-error: false
+      - run: flutter analyze
+      - run: flutter test
+      - run: ./gradlew testDebugUnitTest
+        working-directory: android
+      - run: flutter build apk --debug
