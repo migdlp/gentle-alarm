@@ -164,4 +164,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cityRemove => 'Remove';
+
+  @override
+  String get newAlarm => 'New alarm';
+
+  @override
+  String get editAlarm => 'Edit alarm';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get labelHint => 'Label (optional)';
+
+  @override
+  String get repeat => 'Repeat';
+
+  @override
+  String willRingIn(String inDuration) {
+    return 'Will ring $inDuration';
+  }
+
+  @override
+  String get errorScheduleFailed =>
+      'We couldn\'t schedule the alarm. Check the exact alarms permission.';
+
+  @override
+  String get errorGeneric => 'Something went wrong. Please try again.';
+
+  @override
+  String get discardTitle => 'Discard changes?';
+
+  @override
+  String get discard => 'Discard';
+
+  @override
+  String get keepEditing => 'Keep editing';
 }

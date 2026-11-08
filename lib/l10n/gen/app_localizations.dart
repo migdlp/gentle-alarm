@@ -373,6 +373,72 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Quitar'**
   String get cityRemove;
+
+  /// No description provided for @newAlarm.
+  ///
+  /// In es, this message translates to:
+  /// **'Nueva alarma'**
+  String get newAlarm;
+
+  /// No description provided for @editAlarm.
+  ///
+  /// In es, this message translates to:
+  /// **'Editar alarma'**
+  String get editAlarm;
+
+  /// No description provided for @save.
+  ///
+  /// In es, this message translates to:
+  /// **'Guardar'**
+  String get save;
+
+  /// No description provided for @labelHint.
+  ///
+  /// In es, this message translates to:
+  /// **'Etiqueta (opcional)'**
+  String get labelHint;
+
+  /// No description provided for @repeat.
+  ///
+  /// In es, this message translates to:
+  /// **'Repetir'**
+  String get repeat;
+
+  /// No description provided for @willRingIn.
+  ///
+  /// In es, this message translates to:
+  /// **'Sonará {inDuration}'**
+  String willRingIn(String inDuration);
+
+  /// No description provided for @errorScheduleFailed.
+  ///
+  /// In es, this message translates to:
+  /// **'No hemos podido programar la alarma. Revisa el permiso de alarmas exactas.'**
+  String get errorScheduleFailed;
+
+  /// No description provided for @errorGeneric.
+  ///
+  /// In es, this message translates to:
+  /// **'Algo ha fallado. Inténtalo de nuevo.'**
+  String get errorGeneric;
+
+  /// No description provided for @discardTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Descartar los cambios?'**
+  String get discardTitle;
+
+  /// No description provided for @discard.
+  ///
+  /// In es, this message translates to:
+  /// **'Descartar'**
+  String get discard;
+
+  /// No description provided for @keepEditing.
+  ///
+  /// In es, this message translates to:
+  /// **'Seguir editando'**
+  String get keepEditing;
 }
 
 class _AppLocalizationsDelegate

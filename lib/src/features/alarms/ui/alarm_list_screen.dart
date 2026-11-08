@@ -5,6 +5,7 @@ import 'package:gentle_alarm/src/core/theme/palette.dart';
 import 'package:gentle_alarm/src/core/time/format.dart';
 import 'package:gentle_alarm/src/features/alarms/domain/alarm.dart';
 import 'package:gentle_alarm/src/features/alarms/state/alarms_providers.dart';
+import 'package:gentle_alarm/src/features/alarms/ui/alarm_editor_screen.dart';
 import 'package:gentle_alarm/src/features/alarms/ui/widgets/alarm_tile.dart';
 
 class AlarmListScreen extends ConsumerStatefulWidget {
@@ -31,7 +32,9 @@ class _AlarmListScreenState extends ConsumerState<AlarmListScreen> {
     super.dispose();
   }
 
-  void _create() {}
+  void _create() => Navigator.of(
+    context,
+  ).push(MaterialPageRoute<void>(builder: (_) => const AlarmEditorScreen()));
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +139,11 @@ class _AlarmList extends ConsumerWidget {
             key: ValueKey(a.id),
             alarm: a,
             onToggle: (v) => ref.read(alarmsProvider.notifier).toggle(a.id, v),
-            onTap: () {},
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => AlarmEditorScreen(initial: a),
+              ),
+            ),
           ),
       ],
     );

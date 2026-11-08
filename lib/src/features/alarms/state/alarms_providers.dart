@@ -28,7 +28,11 @@ class AlarmsNotifier extends AsyncNotifier<List<Alarm>> {
   Future<void> toggle(String id, bool enabled) async =>
       _replace(await _repo.setEnabled(id, enabled));
 
-  Future<void> save(Alarm alarm) async => _replace(await _repo.save(alarm));
+  Future<Alarm> save(Alarm alarm) async {
+    final saved = await _repo.save(alarm);
+    _replace(saved);
+    return saved;
+  }
 
   Future<void> skipNext(String id, bool skip) async =>
       _replace(await _repo.setSkipNext(id, skip));

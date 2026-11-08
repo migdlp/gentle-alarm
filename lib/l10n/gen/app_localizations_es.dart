@@ -163,4 +163,40 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get cityRemove => 'Quitar';
+
+  @override
+  String get newAlarm => 'Nueva alarma';
+
+  @override
+  String get editAlarm => 'Editar alarma';
+
+  @override
+  String get save => 'Guardar';
+
+  @override
+  String get labelHint => 'Etiqueta (opcional)';
+
+  @override
+  String get repeat => 'Repetir';
+
+  @override
+  String willRingIn(String inDuration) {
+    return 'Sonará $inDuration';
+  }
+
+  @override
+  String get errorScheduleFailed =>
+      'No hemos podido programar la alarma. Revisa el permiso de alarmas exactas.';
+
+  @override
+  String get errorGeneric => 'Algo ha fallado. Inténtalo de nuevo.';
+
+  @override
+  String get discardTitle => '¿Descartar los cambios?';
+
+  @override
+  String get discard => 'Descartar';
+
+  @override
+  String get keepEditing => 'Seguir editando';
 }

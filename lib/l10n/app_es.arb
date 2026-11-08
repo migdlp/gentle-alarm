@@ -117,5 +117,23 @@
   "citySearchHint": "Busca tu ciudad",
   "citySearchStart": "Escribe al menos 2 letras",
   "citySearchEmpty": "No encontramos esa ciudad",
-  "cityRemove": "Quitar"
+  "cityRemove": "Quitar",
+  "newAlarm": "Nueva alarma",
+  "editAlarm": "Editar alarma",
+  "save": "Guardar",
+  "labelHint": "Etiqueta (opcional)",
+  "repeat": "Repetir",
+  "willRingIn": "Sonará {inDuration}",
+  "@willRingIn": {
+    "placeholders": {
+      "inDuration": {
+        "type": "String"
+      }
+    }
+  },
+  "errorScheduleFailed": "No hemos podido programar la alarma. Revisa el permiso de alarmas exactas.",
+  "errorGeneric": "Algo ha fallado. Inténtalo de nuevo.",
+  "discardTitle": "¿Descartar los cambios?",
+  "discard": "Descartar",
+  "keepEditing": "Seguir editando"
 }

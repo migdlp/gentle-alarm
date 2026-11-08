@@ -2,7 +2,7 @@
 id: E03-T03
 title: Editor de alarma (crear y editar)
 epic: E03
-status: todo
+status: done
 depends_on: [E03-T02, E05-T01]
 requirements: [RF-01, RF-02, RF-80, RF-08]
 size: M
@@ -66,3 +66,6 @@ flutter gen-l10n && flutter analyze && flutter test
 
 ## Si te bloqueas
 - Si `SoundCatalog` no existe, E05-T01 no está hecha: para y reporta.
+
+## Notas de implementación
+- AlarmEditorScreen (hora, días con chips, etiqueta con trim, sonido de solo lectura, amanecer/rampa/volumen/vibración reutilizando alarm_options.dart), navegación desde FAB, estado vacío y tiles, snackbar «Sonará en…», errores y diálogo de descarte. AlarmsNotifier.save ahora devuelve la alarma guardada. 5 tests OK. Pendiente manual: alarma a 2 min.

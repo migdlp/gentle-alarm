@@ -110,5 +110,23 @@
   "citySearchHint": "Search your city",
   "citySearchStart": "Type at least 2 letters",
   "citySearchEmpty": "We couldn't find that city",
-  "cityRemove": "Remove"
+  "cityRemove": "Remove",
+  "newAlarm": "New alarm",
+  "editAlarm": "Edit alarm",
+  "save": "Save",
+  "labelHint": "Label (optional)",
+  "repeat": "Repeat",
+  "willRingIn": "Will ring {inDuration}",
+  "@willRingIn": {
+    "placeholders": {
+      "inDuration": {
+        "type": "String"
+      }
+    }
+  },
+  "errorScheduleFailed": "We couldn't schedule the alarm. Check the exact alarms permission.",
+  "errorGeneric": "Something went wrong. Please try again.",
+  "discardTitle": "Discard changes?",
+  "discard": "Discard",
+  "keepEditing": "Keep editing"
 }
