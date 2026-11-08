@@ -2,7 +2,7 @@
 id: E02-T07
 title: Modelo Alarm y AlarmRepository en Dart
 epic: E02
-status: todo
+status: done
 depends_on: [E02-T06]
 requirements: [RF-01, RF-02, RF-03, RF-04, RF-07]
 size: M
@@ -45,3 +45,6 @@ flutter analyze && flutter test test/features/alarms
 
 ## Si te bloqueas
 - Si los Long llegan como `int` en Dart: es correcto (Dart `int` es de 64 bits).
+
+## Notas de implementación
+- Alarm/AlarmDefaults inmutables, AlarmChannel, AlarmRepository y AlarmException; 11 tests Dart nuevos. PENDIENTE: comprobación manual con dumpsys alarm (E02-T04/T06) por falta de emulador.
