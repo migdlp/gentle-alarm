@@ -151,6 +151,114 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'De mi móvil: {name}'**
   String soundCustom(String name);
+
+  /// No description provided for @alarmsTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Alarmas'**
+  String get alarmsTitle;
+
+  /// No description provided for @emptyTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Aún no tienes alarmas'**
+  String get emptyTitle;
+
+  /// No description provided for @emptyBody.
+  ///
+  /// In es, this message translates to:
+  /// **'Crea la primera y despierta con calma.'**
+  String get emptyBody;
+
+  /// No description provided for @createAlarm.
+  ///
+  /// In es, this message translates to:
+  /// **'Crear alarma'**
+  String get createAlarm;
+
+  /// No description provided for @nextAlarm.
+  ///
+  /// In es, this message translates to:
+  /// **'Próxima: {when} ({inDuration})'**
+  String nextAlarm(String when, String inDuration);
+
+  /// No description provided for @noActiveAlarms.
+  ///
+  /// In es, this message translates to:
+  /// **'Ninguna alarma activada'**
+  String get noActiveAlarms;
+
+  /// No description provided for @todayAt.
+  ///
+  /// In es, this message translates to:
+  /// **'hoy a las {time}'**
+  String todayAt(String time);
+
+  /// No description provided for @tomorrowAt.
+  ///
+  /// In es, this message translates to:
+  /// **'mañana a las {time}'**
+  String tomorrowAt(String time);
+
+  /// No description provided for @weekdayAt.
+  ///
+  /// In es, this message translates to:
+  /// **'el {weekday} a las {time}'**
+  String weekdayAt(String weekday, String time);
+
+  /// No description provided for @inHoursMinutes.
+  ///
+  /// In es, this message translates to:
+  /// **'en {h} h {m} min'**
+  String inHoursMinutes(int h, int m);
+
+  /// No description provided for @inMinutes.
+  ///
+  /// In es, this message translates to:
+  /// **'en {m} min'**
+  String inMinutes(int m);
+
+  /// No description provided for @inLessThanMinute.
+  ///
+  /// In es, this message translates to:
+  /// **'en menos de 1 min'**
+  String get inLessThanMinute;
+
+  /// No description provided for @everyDay.
+  ///
+  /// In es, this message translates to:
+  /// **'Todos los días'**
+  String get everyDay;
+
+  /// No description provided for @weekdaysOnly.
+  ///
+  /// In es, this message translates to:
+  /// **'De lunes a viernes'**
+  String get weekdaysOnly;
+
+  /// No description provided for @weekendsOnly.
+  ///
+  /// In es, this message translates to:
+  /// **'Fines de semana'**
+  String get weekendsOnly;
+
+  /// No description provided for @onceOnly.
+  ///
+  /// In es, this message translates to:
+  /// **'Una vez'**
+  String get onceOnly;
+
+  /// No description provided for @defaultLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Alarma'**
+  String get defaultLabel;
+
+  /// No description provided for @settingsTooltip.
+  ///
+  /// In es, this message translates to:
+  /// **'Ajustes'**
+  String get settingsTooltip;
 }
 
 class _AppLocalizationsDelegate

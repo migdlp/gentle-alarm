@@ -15,5 +15,74 @@
         "type": "String"
       }
     }
-  }
+  },
+  "alarmsTitle": "Alarmas",
+  "emptyTitle": "Aún no tienes alarmas",
+  "emptyBody": "Crea la primera y despierta con calma.",
+  "createAlarm": "Crear alarma",
+  "nextAlarm": "Próxima: {when} ({inDuration})",
+  "@nextAlarm": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      },
+      "inDuration": {
+        "type": "String"
+      }
+    }
+  },
+  "noActiveAlarms": "Ninguna alarma activada",
+  "todayAt": "hoy a las {time}",
+  "@todayAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tomorrowAt": "mañana a las {time}",
+  "@tomorrowAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weekdayAt": "el {weekday} a las {time}",
+  "@weekdayAt": {
+    "placeholders": {
+      "weekday": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "inHoursMinutes": "en {h} h {m} min",
+  "@inHoursMinutes": {
+    "placeholders": {
+      "h": {
+        "type": "int"
+      },
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "inMinutes": "en {m} min",
+  "@inMinutes": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "inLessThanMinute": "en menos de 1 min",
+  "everyDay": "Todos los días",
+  "weekdaysOnly": "De lunes a viernes",
+  "weekendsOnly": "Fines de semana",
+  "onceOnly": "Una vez",
+  "defaultLabel": "Alarma",
+  "settingsTooltip": "Ajustes"
 }

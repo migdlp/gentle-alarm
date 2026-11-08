@@ -8,5 +8,74 @@
   "soundChimes": "Chimes",
   "soundCalmPiano": "Calm piano",
   "soundSingingBowls": "Singing bowls",
-  "soundCustom": "From my phone: {name}"
+  "soundCustom": "From my phone: {name}",
+  "alarmsTitle": "Alarms",
+  "emptyTitle": "No alarms yet",
+  "emptyBody": "Create your first one and wake up calmly.",
+  "createAlarm": "Create alarm",
+  "nextAlarm": "Next: {when} ({inDuration})",
+  "@nextAlarm": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      },
+      "inDuration": {
+        "type": "String"
+      }
+    }
+  },
+  "noActiveAlarms": "No alarms on",
+  "todayAt": "today at {time}",
+  "@todayAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tomorrowAt": "tomorrow at {time}",
+  "@tomorrowAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weekdayAt": "on {weekday} at {time}",
+  "@weekdayAt": {
+    "placeholders": {
+      "weekday": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "inHoursMinutes": "in {h} h {m} min",
+  "@inHoursMinutes": {
+    "placeholders": {
+      "h": {
+        "type": "int"
+      },
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "inMinutes": "in {m} min",
+  "@inMinutes": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "inLessThanMinute": "in less than 1 min",
+  "everyDay": "Every day",
+  "weekdaysOnly": "Weekdays",
+  "weekendsOnly": "Weekends",
+  "onceOnly": "Once",
+  "defaultLabel": "Alarm",
+  "settingsTooltip": "Settings"
 }

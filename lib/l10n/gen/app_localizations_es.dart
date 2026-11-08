@@ -36,4 +36,70 @@ class AppLocalizationsEs extends AppLocalizations {
   String soundCustom(String name) {
     return 'De mi móvil: $name';
   }
+
+  @override
+  String get alarmsTitle => 'Alarmas';
+
+  @override
+  String get emptyTitle => 'Aún no tienes alarmas';
+
+  @override
+  String get emptyBody => 'Crea la primera y despierta con calma.';
+
+  @override
+  String get createAlarm => 'Crear alarma';
+
+  @override
+  String nextAlarm(String when, String inDuration) {
+    return 'Próxima: $when ($inDuration)';
+  }
+
+  @override
+  String get noActiveAlarms => 'Ninguna alarma activada';
+
+  @override
+  String todayAt(String time) {
+    return 'hoy a las $time';
+  }
+
+  @override
+  String tomorrowAt(String time) {
+    return 'mañana a las $time';
+  }
+
+  @override
+  String weekdayAt(String weekday, String time) {
+    return 'el $weekday a las $time';
+  }
+
+  @override
+  String inHoursMinutes(int h, int m) {
+    return 'en $h h $m min';
+  }
+
+  @override
+  String inMinutes(int m) {
+    return 'en $m min';
+  }
+
+  @override
+  String get inLessThanMinute => 'en menos de 1 min';
+
+  @override
+  String get everyDay => 'Todos los días';
+
+  @override
+  String get weekdaysOnly => 'De lunes a viernes';
+
+  @override
+  String get weekendsOnly => 'Fines de semana';
+
+  @override
+  String get onceOnly => 'Una vez';
+
+  @override
+  String get defaultLabel => 'Alarma';
+
+  @override
+  String get settingsTooltip => 'Ajustes';
 }

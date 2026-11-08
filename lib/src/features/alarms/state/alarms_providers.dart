@@ -1,0 +1,46 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gentle_alarm/src/features/alarms/data/alarm_repository.dart';
+import 'package:gentle_alarm/src/features/alarms/domain/alarm.dart';
+
+final clockProvider = Provider<DateTime Function()>((ref) => DateTime.now);
+
+List<Alarm> _sorted(Iterable<Alarm> alarms) => alarms.toList()
+  ..sort((a, b) {
+    final c = (a.hour * 60 + a.minute).compareTo(b.hour * 60 + b.minute);
+    return c != 0 ? c : a.createdAtEpochMs.compareTo(b.createdAtEpochMs);
+  });
+
+class AlarmsNotifier extends AsyncNotifier<List<Alarm>> {
+  AlarmRepository get _repo => ref.read(alarmRepositoryProvider);
+
+  @override
+  Future<List<Alarm>> build() => ref.read(alarmRepositoryProvider).list();
+
+  Future<void> refresh() async {
+    state = AsyncData(await _repo.list());
+  }
+
+  void _replace(Alarm a) {
+    final current = state.value ?? const <Alarm>[];
+    state = AsyncData(_sorted([...current.where((x) => x.id != a.id), a]));
+  }
+
+  Future<void> toggle(String id, bool enabled) async =>
+      _replace(await _repo.setEnabled(id, enabled));
+
+  Future<void> save(Alarm alarm) async => _replace(await _repo.save(alarm));
+
+  Future<void> skipNext(String id, bool skip) async =>
+      _replace(await _repo.setSkipNext(id, skip));
+
+  Future<void> remove(String id) async {
+    await _repo.delete(id);
+    state = AsyncData(
+      (state.value ?? const <Alarm>[]).where((a) => a.id != id).toList(),
+    );
+  }
+}
+
+final alarmsProvider = AsyncNotifierProvider<AlarmsNotifier, List<Alarm>>(
+  AlarmsNotifier.new,
+);
