@@ -111,5 +111,11 @@
   },
   "ramp": "Subida del volumen",
   "maxVolume": "Volumen máximo",
-  "vibration": "Vibración suave"
+  "vibration": "Vibración suave",
+  "weatherCity": "Ciudad para el tiempo",
+  "weatherCityNone": "Sin ciudad · el saludo no mostrará el tiempo",
+  "citySearchHint": "Busca tu ciudad",
+  "citySearchStart": "Escribe al menos 2 letras",
+  "citySearchEmpty": "No encontramos esa ciudad",
+  "cityRemove": "Quitar"
 }

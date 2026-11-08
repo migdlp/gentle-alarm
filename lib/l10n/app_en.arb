@@ -104,5 +104,11 @@
   },
   "ramp": "Volume fade-in",
   "maxVolume": "Maximum volume",
-  "vibration": "Gentle vibration"
+  "vibration": "Gentle vibration",
+  "weatherCity": "City for the weather",
+  "weatherCityNone": "No city · the greeting won't show the weather",
+  "citySearchHint": "Search your city",
+  "citySearchStart": "Type at least 2 letters",
+  "citySearchEmpty": "We couldn't find that city",
+  "cityRemove": "Remove"
 }

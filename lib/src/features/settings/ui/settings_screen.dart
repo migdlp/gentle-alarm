@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gentle_alarm/l10n/gen/app_localizations.dart';
 import 'package:gentle_alarm/src/features/alarms/domain/alarm.dart';
 import 'package:gentle_alarm/src/features/alarms/ui/widgets/alarm_options.dart';
+import 'package:gentle_alarm/src/features/greeting/state/weather_providers.dart';
+import 'package:gentle_alarm/src/features/greeting/ui/city_search_screen.dart';
 import 'package:gentle_alarm/src/features/settings/state/settings_providers.dart';
 import 'package:gentle_alarm/src/features/sounds/domain/sound_catalog.dart';
 
@@ -48,6 +50,25 @@ class SettingsScreen extends ConsumerWidget {
           ),
           const SizedBox(height: 16),
           _Header(l10n.weatherSection),
+          Builder(
+            builder: (context) {
+              final city = ref.watch(cityProvider);
+              return ListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text(l10n.weatherCity),
+                subtitle: Text(
+                  city == null
+                      ? l10n.weatherCityNone
+                      : '${city.name}, ${city.country}',
+                ),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const CitySearchScreen(),
+                  ),
+                ),
+              );
+            },
+          ),
           const SizedBox(height: 16),
           _Header(l10n.aboutSection),
           ListTile(

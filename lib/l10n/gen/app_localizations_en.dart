@@ -145,4 +145,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get vibration => 'Gentle vibration';
+
+  @override
+  String get weatherCity => 'City for the weather';
+
+  @override
+  String get weatherCityNone =>
+      'No city · the greeting won\'t show the weather';
+
+  @override
+  String get citySearchHint => 'Search your city';
+
+  @override
+  String get citySearchStart => 'Type at least 2 letters';
+
+  @override
+  String get citySearchEmpty => 'We couldn\'t find that city';
+
+  @override
+  String get cityRemove => 'Remove';
 }

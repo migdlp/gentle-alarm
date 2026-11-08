@@ -145,4 +145,22 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get vibration => 'Vibración suave';
+
+  @override
+  String get weatherCity => 'Ciudad para el tiempo';
+
+  @override
+  String get weatherCityNone => 'Sin ciudad · el saludo no mostrará el tiempo';
+
+  @override
+  String get citySearchHint => 'Busca tu ciudad';
+
+  @override
+  String get citySearchStart => 'Escribe al menos 2 letras';
+
+  @override
+  String get citySearchEmpty => 'No encontramos esa ciudad';
+
+  @override
+  String get cityRemove => 'Quitar';
 }

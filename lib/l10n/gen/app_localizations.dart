@@ -337,6 +337,42 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Vibración suave'**
   String get vibration;
+
+  /// No description provided for @weatherCity.
+  ///
+  /// In es, this message translates to:
+  /// **'Ciudad para el tiempo'**
+  String get weatherCity;
+
+  /// No description provided for @weatherCityNone.
+  ///
+  /// In es, this message translates to:
+  /// **'Sin ciudad · el saludo no mostrará el tiempo'**
+  String get weatherCityNone;
+
+  /// No description provided for @citySearchHint.
+  ///
+  /// In es, this message translates to:
+  /// **'Busca tu ciudad'**
+  String get citySearchHint;
+
+  /// No description provided for @citySearchStart.
+  ///
+  /// In es, this message translates to:
+  /// **'Escribe al menos 2 letras'**
+  String get citySearchStart;
+
+  /// No description provided for @citySearchEmpty.
+  ///
+  /// In es, this message translates to:
+  /// **'No encontramos esa ciudad'**
+  String get citySearchEmpty;
+
+  /// No description provided for @cityRemove.
+  ///
+  /// In es, this message translates to:
+  /// **'Quitar'**
+  String get cityRemove;
 }
 
 class _AppLocalizationsDelegate
