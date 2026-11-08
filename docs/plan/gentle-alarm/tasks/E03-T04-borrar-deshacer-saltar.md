@@ -2,7 +2,7 @@
 id: E03-T04
 title: Borrar con deshacer y saltar la próxima ocurrencia
 epic: E03
-status: todo
+status: done
 depends_on: [E03-T03]
 requirements: [RF-04, RF-07]
 size: S
@@ -50,3 +50,6 @@ flutter gen-l10n && flutter analyze && flutter test test/features/alarms
 
 ## Si te bloqueas
 - Si la app se cierra antes de que pasen los 5 s, el borrado no se ejecuta; es aceptable (la alarma sigue existiendo). No lo compenses.
+
+## Notas de implementación
+- Dismissible + menú con Saltar/Borrar, hideTemporarily/restore en el notifier, snackbar con Deshacer (persist:false para que la duración de 5 s se respete con acción) y fila «Se salta el…». 5 tests nuevos OK. Pendiente manual: TalkBack.

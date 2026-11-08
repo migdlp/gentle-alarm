@@ -199,4 +199,24 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get keepEditing => 'Seguir editando';
+
+  @override
+  String get alarmDeleted => 'Alarma borrada';
+
+  @override
+  String get undo => 'Deshacer';
+
+  @override
+  String get skipNext => 'Saltar la próxima';
+
+  @override
+  String get unskipNext => 'No saltar';
+
+  @override
+  String skippingOn(String date) {
+    return 'Se salta el $date';
+  }
+
+  @override
+  String get deleteAlarm => 'Borrar';
 }

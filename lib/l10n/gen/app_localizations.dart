@@ -439,6 +439,42 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Seguir editando'**
   String get keepEditing;
+
+  /// No description provided for @alarmDeleted.
+  ///
+  /// In es, this message translates to:
+  /// **'Alarma borrada'**
+  String get alarmDeleted;
+
+  /// No description provided for @undo.
+  ///
+  /// In es, this message translates to:
+  /// **'Deshacer'**
+  String get undo;
+
+  /// No description provided for @skipNext.
+  ///
+  /// In es, this message translates to:
+  /// **'Saltar la próxima'**
+  String get skipNext;
+
+  /// No description provided for @unskipNext.
+  ///
+  /// In es, this message translates to:
+  /// **'No saltar'**
+  String get unskipNext;
+
+  /// No description provided for @skippingOn.
+  ///
+  /// In es, this message translates to:
+  /// **'Se salta el {date}'**
+  String skippingOn(String date);
+
+  /// No description provided for @deleteAlarm.
+  ///
+  /// In es, this message translates to:
+  /// **'Borrar'**
+  String get deleteAlarm;
 }
 
 class _AppLocalizationsDelegate

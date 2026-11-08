@@ -135,17 +135,57 @@ class _AlarmList extends ConsumerWidget {
           child: Text(header, style: Theme.of(context).textTheme.titleMedium),
         ),
         for (final a in alarms)
-          AlarmTile(
-            key: ValueKey(a.id),
-            alarm: a,
-            onToggle: (v) => ref.read(alarmsProvider.notifier).toggle(a.id, v),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (_) => AlarmEditorScreen(initial: a),
+          Dismissible(
+            key: ValueKey('dismiss-${a.id}'),
+            direction: DismissDirection.endToStart,
+            background: Container(
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 24),
+              child: const Icon(Icons.delete_outline),
+            ),
+            onDismissed: (_) => _deleteWithUndo(context, ref, a),
+            child: AlarmTile(
+              key: ValueKey(a.id),
+              alarm: a,
+              onSkip: () => ref
+                  .read(alarmsProvider.notifier)
+                  .skipNext(a.id, !a.skipsNext),
+              onDelete: () => _deleteWithUndo(context, ref, a),
+              onToggle: (v) =>
+                  ref.read(alarmsProvider.notifier).toggle(a.id, v),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => AlarmEditorScreen(initial: a),
+                ),
               ),
             ),
           ),
       ],
     );
   }
+}
+
+void _deleteWithUndo(BuildContext context, WidgetRef ref, Alarm alarm) {
+  final l10n = AppLocalizations.of(context)!;
+  final notifier = ref.read(alarmsProvider.notifier);
+  final messenger = ScaffoldMessenger.of(context);
+  notifier.hideTemporarily(alarm.id);
+  messenger.clearSnackBars();
+  messenger
+      .showSnackBar(
+        SnackBar(
+          content: Text(l10n.alarmDeleted),
+          persist: false,
+          duration: const Duration(seconds: 5),
+          action: SnackBarAction(label: l10n.undo, onPressed: () {}),
+        ),
+      )
+      .closed
+      .then((reason) {
+        if (reason == SnackBarClosedReason.action) {
+          notifier.restore(alarm.id);
+        } else {
+          notifier.remove(alarm.id);
+        }
+      });
 }

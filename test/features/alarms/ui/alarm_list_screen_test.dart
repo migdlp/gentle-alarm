@@ -12,6 +12,7 @@ class FakeRepo implements AlarmRepository {
   FakeRepo(this.alarms);
   List<Alarm> alarms;
   final calls = <String>[];
+  final deleted = <String>[];
 
   @override
   Future<List<Alarm>> list() async => alarms;
@@ -24,9 +25,15 @@ class FakeRepo implements AlarmRepository {
   @override
   Future<Alarm> save(Alarm alarm) async => alarm;
   @override
-  Future<void> delete(String id) async {}
+  Future<void> delete(String id) async {
+    deleted.add(id);
+  }
+
   @override
-  Future<Alarm> setSkipNext(String id, bool skip) async => alarms.first;
+  Future<Alarm> setSkipNext(String id, bool skip) async {
+    calls.add('setSkipNext($id,$skip)');
+    return alarms.firstWhere((a) => a.id == id);
+  }
 }
 
 final _now = DateTime(2026, 11, 9, 22, 0);
@@ -110,5 +117,65 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.textContaining('PM'), findsWidgets);
+  });
+
+  testWidgets('deslizar borra tras 5 s', (tester) async {
+    final repo = FakeRepo([_alarm('a', 7, DateTime(2026, 11, 10, 7, 30))]);
+    await _pump(tester, repo);
+    await tester.drag(find.byType(AlarmTile), const Offset(-600, 0));
+    await tester.pumpAndSettle();
+    expect(find.byType(AlarmTile), findsNothing);
+    expect(find.text('Alarma borrada'), findsOneWidget);
+    expect(repo.deleted, isEmpty);
+    await tester.pump(const Duration(seconds: 6));
+    await tester.pump(const Duration(seconds: 1));
+    await tester.pumpAndSettle();
+    expect(find.text('Alarma borrada'), findsNothing);
+    expect(repo.deleted, ['a']);
+  });
+
+  testWidgets('deshacer devuelve la alarma y no borra', (tester) async {
+    final repo = FakeRepo([_alarm('a', 7, DateTime(2026, 11, 10, 7, 30))]);
+    await _pump(tester, repo);
+    await tester.drag(find.byType(AlarmTile), const Offset(-600, 0));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Deshacer'));
+    await tester.pumpAndSettle();
+    expect(find.byType(AlarmTile), findsOneWidget);
+    await tester.pump(const Duration(seconds: 6));
+    expect(repo.deleted, isEmpty);
+  });
+
+  testWidgets('el menú de una alarma repetida permite saltar', (tester) async {
+    final a = Alarm(
+      id: 'r',
+      weekdays: const [1, 2],
+      scheduledRingAtEpochMs: DateTime(
+        2026,
+        11,
+        10,
+        7,
+        30,
+      ).millisecondsSinceEpoch,
+      createdAtEpochMs: 0,
+    );
+    final repo = FakeRepo([a]);
+    await _pump(tester, repo);
+    await tester.tap(find.byType(PopupMenuButton<String>));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Saltar la próxima'));
+    await tester.pumpAndSettle();
+    expect(repo.calls, ['setSkipNext(r,true)']);
+  });
+
+  testWidgets('una alarma sin días no ofrece saltar', (tester) async {
+    await _pump(
+      tester,
+      FakeRepo([_alarm('a', 7, DateTime(2026, 11, 10, 7, 30))]),
+    );
+    await tester.tap(find.byType(PopupMenuButton<String>));
+    await tester.pumpAndSettle();
+    expect(find.text('Saltar la próxima'), findsNothing);
+    expect(find.text('Borrar'), findsOneWidget);
   });
 }

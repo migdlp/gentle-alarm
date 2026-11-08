@@ -135,5 +135,18 @@
   "errorGeneric": "Algo ha fallado. Inténtalo de nuevo.",
   "discardTitle": "¿Descartar los cambios?",
   "discard": "Descartar",
-  "keepEditing": "Seguir editando"
+  "keepEditing": "Seguir editando",
+  "alarmDeleted": "Alarma borrada",
+  "undo": "Deshacer",
+  "skipNext": "Saltar la próxima",
+  "unskipNext": "No saltar",
+  "skippingOn": "Se salta el {date}",
+  "@skippingOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteAlarm": "Borrar"
 }

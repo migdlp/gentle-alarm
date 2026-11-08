@@ -128,5 +128,18 @@
   "errorGeneric": "Something went wrong. Please try again.",
   "discardTitle": "Discard changes?",
   "discard": "Discard",
-  "keepEditing": "Keep editing"
+  "keepEditing": "Keep editing",
+  "alarmDeleted": "Alarm deleted",
+  "undo": "Undo",
+  "skipNext": "Skip next",
+  "unskipNext": "Don't skip",
+  "skippingOn": "Skipping {date}",
+  "@skippingOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteAlarm": "Delete"
 }

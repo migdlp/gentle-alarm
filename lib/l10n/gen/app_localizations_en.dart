@@ -200,4 +200,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get keepEditing => 'Keep editing';
+
+  @override
+  String get alarmDeleted => 'Alarm deleted';
+
+  @override
+  String get undo => 'Undo';
+
+  @override
+  String get skipNext => 'Skip next';
+
+  @override
+  String get unskipNext => 'Don\'t skip';
+
+  @override
+  String skippingOn(String date) {
+    return 'Skipping $date';
+  }
+
+  @override
+  String get deleteAlarm => 'Delete';
 }

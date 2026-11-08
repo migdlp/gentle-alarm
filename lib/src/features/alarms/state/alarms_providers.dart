@@ -37,7 +37,24 @@ class AlarmsNotifier extends AsyncNotifier<List<Alarm>> {
   Future<void> skipNext(String id, bool skip) async =>
       _replace(await _repo.setSkipNext(id, skip));
 
+  final Map<String, Alarm> _hidden = {};
+
+  /// Quita la alarma de la lista visible sin borrarla (estado optimista).
+  void hideTemporarily(String id) {
+    final current = state.value ?? const <Alarm>[];
+    final found = current.where((a) => a.id == id);
+    if (found.isEmpty) return;
+    _hidden[id] = found.first;
+    state = AsyncData(current.where((a) => a.id != id).toList());
+  }
+
+  void restore(String id) {
+    final a = _hidden.remove(id);
+    if (a != null) _replace(a);
+  }
+
   Future<void> remove(String id) async {
+    _hidden.remove(id);
     await _repo.delete(id);
     state = AsyncData(
       (state.value ?? const <Alarm>[]).where((a) => a.id != id).toList(),
