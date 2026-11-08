@@ -64,7 +64,14 @@ void main() {
     await tester.tap(find.text('Guardar'));
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('6:45'), findsOneWidget);
+    // La hora sale en la fila y también en la cabecera «Próxima…»: se mira la fila.
+    expect(
+      find.descendant(
+        of: find.byType(AlarmTile),
+        matching: find.textContaining('6:45'),
+      ),
+      findsOneWidget,
+    );
 
     // Comprobación nativa: la alarma está programada.
     final saved = await channel.list();
