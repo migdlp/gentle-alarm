@@ -2,7 +2,7 @@
 id: E01-T01
 title: Crear el proyecto Flutter con estructura, lints y README
 epic: E01
-status: todo
+status: done
 depends_on: []
 requirements: [RNF-08, RNF-09]
 size: S
@@ -39,11 +39,11 @@ El repo contiene una app Flutter que compila para Android, con `applicationId` `
 11. Reescribe `README.md` con: descripción (2 frases de `00-overview.md`), requisitos de instalación (Flutter, versión anotada de `flutter --version`, JDK 17 y Android SDK 35), comandos (`flutter pub get`, `flutter gen-l10n`, `flutter run`, `flutter test`, `cd android && ./gradlew testDebugUnitTest`) y un enlace a `docs/plan/gentle-alarm/README.md`.
 
 ## Criterios de aceptación
-- [ ] `flutter analyze` sin avisos.
-- [ ] `flutter test` pasa (1 test).
-- [ ] `cd android && ./gradlew testDebugUnitTest` pasa (1 test).
-- [ ] `flutter build apk --debug` genera el APK.
-- [ ] El README contiene la versión exacta de Flutter usada.
+- [x] `flutter analyze` sin avisos.
+- [x] `flutter test` pasa (1 test).
+- [x] `cd android && ./gradlew testDebugUnitTest` pasa (1 test).
+- [x] `flutter build apk --debug` genera el APK.
+- [x] El README contiene la versión exacta de Flutter usada.
 
 ## Verificación
 ```bash
@@ -57,3 +57,9 @@ flutter build apk --debug
 
 ## Si te bloqueas
 - Si `flutter create` genera Groovy (`build.gradle`), aplica los mismos valores con sintaxis Groovy y anótalo en «Notas de implementación».
+
+## Notas de implementación
+- Proyecto creado con `flutter create`; `MainActivity` movida al paquete `com.migdlp.gentlealarm`.
+- Desviación: `compileSdk = 36` (targetSdk 35) porque `integration_test` y `shared_preferences_android` lo exigen.
+- Entorno: Maven Central devolvía 429; se usó un espejo (init script local, fuera del repo).
+- Resultados: `flutter analyze` sin avisos, `flutter test` 1 OK, `testDebugUnitTest` OK, `flutter build apk --debug` OK. RED no aplica (tarea de andamiaje).
