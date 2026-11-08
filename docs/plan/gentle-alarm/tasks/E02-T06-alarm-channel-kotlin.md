@@ -2,7 +2,7 @@
 id: E02-T06
 title: Canal gentle_alarm/alarms en Kotlin
 epic: E02
-status: todo
+status: done
 depends_on: [E02-T04]
 requirements: [RF-01, RF-02, RF-03, RF-04, RF-07]
 size: M
@@ -53,3 +53,6 @@ flutter build apk --debug
 
 ## Si te bloqueas
 - Si un `Int` llega desde Dart como `Long` (o al revés), convierte con `(value as Number).toInt()` o `.toLong()`; no cambies el contrato.
+
+## Notas de implementación
+- AlarmChannelHandler (9 tests OK) + AlarmChannel registrado en MainActivity; AlarmSpec.toMap/fromMap; el scheduler limpia skipRingAtEpochMs pasado. APK compila. Pendiente manual: dumpsys alarm tras E02-T07.
