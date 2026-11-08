@@ -2,7 +2,7 @@
 id: E02-T03
 title: NextTriggerCalculator con recurrencia, salto y horario de verano
 epic: E02
-status: todo
+status: done
 depends_on: [E02-T01]
 requirements: [RF-43, RF-12, RF-07]
 size: M
@@ -54,8 +54,8 @@ Una función pura calcula, para una `AlarmSpec` y un instante, la T de la siguie
 | sunrise 0 | fireAt = T |
 
 ## Criterios de aceptación
-- [ ] Los 12 casos tienen un test que pasa.
-- [ ] El calculador no lee el reloj del sistema: `now` y `zone` siempre llegan como parámetros.
+- [x] Los 12 casos tienen un test que pasa.
+- [x] El calculador no lee el reloj del sistema: `now` y `zone` siempre llegan como parámetros.
 
 ## Verificación
 ```bash
@@ -67,3 +67,6 @@ cd android && ./gradlew testDebugUnitTest --tests "*NextTriggerCalculatorTest*"
 
 ## Si te bloqueas
 - Si `java.time` no está disponible en API 26: sí lo está (desde API 26). No añadas desugaring.
+
+## Notas de implementación
+- NextTriggerCalculator puro con 13 tests (12 casos + salto en hueco DST). Desviación: el bucle va de 0 a 14 (no 0..8) porque el caso «un solo día [3] con skip» exige +9 días respecto a un lunes, fuera del rango 0..8 del plan.
