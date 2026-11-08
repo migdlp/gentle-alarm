@@ -33,7 +33,8 @@ jobs:
       - run: flutter test
       # gradlew no está versionado: flutter lo genera al compilar, así que el APK va primero.
       - run: flutter build apk --debug
-      - run: ./gradlew testDebugUnitTest
+      # Solo el módulo app: las pruebas de los plugins (Robolectric) exigen Java 21.
+      - run: ./gradlew :app:testDebugUnitTest
         working-directory: android
 
   android-emulator:
