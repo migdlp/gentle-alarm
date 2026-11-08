@@ -1,6 +1,14 @@
 package com.migdlp.gentlealarm.channel
 
+import android.Manifest
 import android.app.Activity
+import android.app.AlarmManager
+import android.app.NotificationManager
+import android.content.Context
+import android.content.pm.PackageManager
+import android.os.Build
+import android.provider.Settings
+import androidx.core.app.NotificationManagerCompat
 import android.content.Intent
 import android.media.AudioAttributes
 import android.media.MediaPlayer
@@ -18,6 +26,7 @@ import io.flutter.plugin.common.MethodChannel
 class SystemChannel(private val activity: Activity) {
     private val handler = Handler(Looper.getMainLooper())
     private var pickResult: MethodChannel.Result? = null
+    private var notifResult: MethodChannel.Result? = null
     private var preview: MediaPlayer? = null
     private var previewToken = 0
 
@@ -58,8 +67,84 @@ class SystemChannel(private val activity: Activity) {
                 result.success(null)
             }
             "canReadUri" -> result.success(canRead(call.argument<String>("uri")))
+            "getPermissionStatus" -> result.success(permissionStatus())
+            "requestNotificationPermission" -> requestNotifications(result)
+            "openNotificationSettings" -> open(
+                Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                    .putExtra(Settings.EXTRA_APP_PACKAGE, activity.packageName),
+                result,
+            )
+            "openExactAlarmSettings" -> open(
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, packageUri())
+                } else detailsIntent(),
+                result,
+            )
+            "openFullScreenSettings" -> open(
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                    Intent("android.settings.MANAGE_APP_USE_FULL_SCREEN_INTENT", packageUri())
+                } else detailsIntent(),
+                result,
+            )
+            "openBatterySettings" -> open(detailsIntent(), result)
             else -> result.notImplemented()
         }
+    }
+
+    private fun packageUri() = Uri.parse("package:${activity.packageName}")
+
+    private fun detailsIntent() = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageUri())
+
+    private fun open(intent: Intent, result: MethodChannel.Result) {
+        try {
+            activity.startActivity(intent)
+        } catch (e: Exception) {
+            Log.w(TAG, "No se pudo abrir los ajustes", e)
+            try {
+                activity.startActivity(detailsIntent())
+            } catch (_: Exception) {
+            }
+        }
+        result.success(null)
+    }
+
+    private fun permissionStatus(): Map<String, Any> {
+        val sdk = Build.VERSION.SDK_INT
+        val am = activity.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val nm = activity.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        return mapOf(
+            "notifications" to NotificationManagerCompat.from(activity).areNotificationsEnabled(),
+            "exactAlarms" to (sdk < Build.VERSION_CODES.S || am.canScheduleExactAlarms()),
+            "fullScreen" to (sdk < Build.VERSION_CODES.UPSIDE_DOWN_CAKE || nm.canUseFullScreenIntent()),
+            "sdkInt" to sdk,
+            "manufacturer" to Build.MANUFACTURER.lowercase(),
+        )
+    }
+
+    private fun requestNotifications(result: MethodChannel.Result) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            result.success(NotificationManagerCompat.from(activity).areNotificationsEnabled())
+            return
+        }
+        if (activity.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) ==
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            result.success(true)
+            return
+        }
+        if (notifResult != null) {
+            result.error("INTERNAL", "solicitud en curso", null)
+            return
+        }
+        notifResult = result
+        activity.requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), REQUEST_NOTIFICATIONS)
+    }
+
+    fun onRequestPermissionsResult(requestCode: Int, grantResults: IntArray): Boolean {
+        if (requestCode != REQUEST_NOTIFICATIONS) return false
+        notifResult?.success(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        notifResult = null
+        return true
     }
 
     /** Devuelve true si el resultado era de este canal. */
@@ -156,5 +241,6 @@ class SystemChannel(private val activity: Activity) {
         const val NAME = "gentle_alarm/system"
         private const val TAG = "SystemChannel"
         private const val REQUEST_PICK_AUDIO = 4201
+        private const val REQUEST_NOTIFICATIONS = 4202
     }
 }

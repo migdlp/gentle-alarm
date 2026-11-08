@@ -2,7 +2,7 @@
 id: E07-T01
 title: Estado de permisos y accesos a sus ajustes desde Dart
 epic: E07
-status: todo
+status: done
 depends_on: [E05-T02]
 requirements: [RF-50]
 size: S
@@ -45,3 +45,6 @@ flutter build apk --debug
 
 ## Si te bloqueas
 - Si `ACTION_MANAGE_APP_USE_FULL_SCREEN_INTENT` no existe en el SDK de compilación, usa la cadena literal `"android.settings.MANAGE_APP_USE_FULL_SCREEN_INTENT"`.
+
+## Notas de implementación
+- Métodos de permisos en SystemChannel.kt (estado, solicitud de POST_NOTIFICATIONS vía requestPermissions/onRequestPermissionsResult al no ser FlutterActivity una ComponentActivity, y apertura de ajustes con fallback a detalles de la app), PermissionStatus y permissionStatusProvider invalidado al reanudar. 2 tests OK; APK compila. PENDIENTE manual: revocar pantalla completa en emulador API 34.
