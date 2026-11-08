@@ -357,4 +357,74 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get greetingPhrase12 =>
       'Something new starts today, even if it\'s small.';
+
+  @override
+  String get onbWelcomeBody =>
+      'We\'ll wake you gently: light first, then a soft sound.';
+
+  @override
+  String get onbStart => 'Let\'s start';
+
+  @override
+  String get onbNotifTitle => 'Alarm notifications';
+
+  @override
+  String get onbNotifBody =>
+      'We need them to show the alarm and let you turn it off from the lock screen.';
+
+  @override
+  String get onbAllow => 'Allow';
+
+  @override
+  String get onbLater => 'Not now';
+
+  @override
+  String get onbExactTitle => 'On-time alarms';
+
+  @override
+  String get onbExactBody =>
+      'Turn on \"Alarms & reminders\" so it rings right on time.';
+
+  @override
+  String get onbFullTitle => 'Full-screen sunrise';
+
+  @override
+  String get onbFullBody =>
+      'Allow full screen so the sunrise appears even when your phone is locked.';
+
+  @override
+  String get onbOpenSettings => 'Open settings';
+
+  @override
+  String get onbBatteryTitle => 'Don\'t let anything stop your alarm';
+
+  @override
+  String get onbBatteryXiaomi =>
+      'In Settings → Battery, choose \"No restrictions\" and turn on \"Autostart\".';
+
+  @override
+  String get onbBatteryHuawei =>
+      'In Settings → Battery → App launch, turn off \"Manage automatically\" and leave everything on.';
+
+  @override
+  String get onbBatteryOppo =>
+      'In Settings → Battery, allow background activity and auto-launch.';
+
+  @override
+  String get onbBatteryVivo =>
+      'In Settings → Battery → Background power consumption, allow high usage.';
+
+  @override
+  String get onbBatterySamsung =>
+      'In Settings → Battery → Background usage limits, add the app to \"Never sleeping apps\".';
+
+  @override
+  String get onbTipTitle => 'A tip for tonight';
+
+  @override
+  String get onbTipBody =>
+      'Leave your phone face up and charging on your nightstand to see the sunrise.';
+
+  @override
+  String get onbDone => 'Done';
 }

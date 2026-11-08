@@ -709,6 +709,126 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Hoy empieza algo nuevo, aunque sea pequeño.'**
   String get greetingPhrase12;
+
+  /// No description provided for @onbWelcomeBody.
+  ///
+  /// In es, this message translates to:
+  /// **'Te despertaremos poco a poco: primero la luz y luego un sonido suave.'**
+  String get onbWelcomeBody;
+
+  /// No description provided for @onbStart.
+  ///
+  /// In es, this message translates to:
+  /// **'Empezar'**
+  String get onbStart;
+
+  /// No description provided for @onbNotifTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Avisos de alarma'**
+  String get onbNotifTitle;
+
+  /// No description provided for @onbNotifBody.
+  ///
+  /// In es, this message translates to:
+  /// **'Las necesitamos para mostrar la alarma y poder apagarla desde la pantalla de bloqueo.'**
+  String get onbNotifBody;
+
+  /// No description provided for @onbAllow.
+  ///
+  /// In es, this message translates to:
+  /// **'Permitir'**
+  String get onbAllow;
+
+  /// No description provided for @onbLater.
+  ///
+  /// In es, this message translates to:
+  /// **'Ahora no'**
+  String get onbLater;
+
+  /// No description provided for @onbExactTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Alarmas puntuales'**
+  String get onbExactTitle;
+
+  /// No description provided for @onbExactBody.
+  ///
+  /// In es, this message translates to:
+  /// **'Activa «Alarmas y recordatorios» para que suene justo a su hora.'**
+  String get onbExactBody;
+
+  /// No description provided for @onbFullTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Amanecer en pantalla completa'**
+  String get onbFullTitle;
+
+  /// No description provided for @onbFullBody.
+  ///
+  /// In es, this message translates to:
+  /// **'Permite la pantalla completa para que el amanecer aparezca aunque el móvil esté bloqueado.'**
+  String get onbFullBody;
+
+  /// No description provided for @onbOpenSettings.
+  ///
+  /// In es, this message translates to:
+  /// **'Abrir ajustes'**
+  String get onbOpenSettings;
+
+  /// No description provided for @onbBatteryTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Que nada apague tu alarma'**
+  String get onbBatteryTitle;
+
+  /// No description provided for @onbBatteryXiaomi.
+  ///
+  /// In es, this message translates to:
+  /// **'En Ajustes → Batería, elige «Sin restricciones» y activa «Inicio automático».'**
+  String get onbBatteryXiaomi;
+
+  /// No description provided for @onbBatteryHuawei.
+  ///
+  /// In es, this message translates to:
+  /// **'En Ajustes → Batería → Inicio de aplicaciones, desactiva «Gestionar automáticamente» y deja las tres opciones activadas.'**
+  String get onbBatteryHuawei;
+
+  /// No description provided for @onbBatteryOppo.
+  ///
+  /// In es, this message translates to:
+  /// **'En Ajustes → Batería, permite la actividad en segundo plano y el inicio automático.'**
+  String get onbBatteryOppo;
+
+  /// No description provided for @onbBatteryVivo.
+  ///
+  /// In es, this message translates to:
+  /// **'En Ajustes → Batería → Consumo en segundo plano, permite el consumo alto.'**
+  String get onbBatteryVivo;
+
+  /// No description provided for @onbBatterySamsung.
+  ///
+  /// In es, this message translates to:
+  /// **'En Ajustes → Batería → Límites de uso en segundo plano, añade la app a «Nunca en suspensión».'**
+  String get onbBatterySamsung;
+
+  /// No description provided for @onbTipTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Un consejo para esta noche'**
+  String get onbTipTitle;
+
+  /// No description provided for @onbTipBody.
+  ///
+  /// In es, this message translates to:
+  /// **'Deja el móvil boca arriba y cargando en la mesilla para ver el amanecer.'**
+  String get onbTipBody;
+
+  /// No description provided for @onbDone.
+  ///
+  /// In es, this message translates to:
+  /// **'Listo'**
+  String get onbDone;
 }
 
 class _AppLocalizationsDelegate

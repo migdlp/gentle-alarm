@@ -355,4 +355,74 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get greetingPhrase12 => 'Hoy empieza algo nuevo, aunque sea pequeño.';
+
+  @override
+  String get onbWelcomeBody =>
+      'Te despertaremos poco a poco: primero la luz y luego un sonido suave.';
+
+  @override
+  String get onbStart => 'Empezar';
+
+  @override
+  String get onbNotifTitle => 'Avisos de alarma';
+
+  @override
+  String get onbNotifBody =>
+      'Las necesitamos para mostrar la alarma y poder apagarla desde la pantalla de bloqueo.';
+
+  @override
+  String get onbAllow => 'Permitir';
+
+  @override
+  String get onbLater => 'Ahora no';
+
+  @override
+  String get onbExactTitle => 'Alarmas puntuales';
+
+  @override
+  String get onbExactBody =>
+      'Activa «Alarmas y recordatorios» para que suene justo a su hora.';
+
+  @override
+  String get onbFullTitle => 'Amanecer en pantalla completa';
+
+  @override
+  String get onbFullBody =>
+      'Permite la pantalla completa para que el amanecer aparezca aunque el móvil esté bloqueado.';
+
+  @override
+  String get onbOpenSettings => 'Abrir ajustes';
+
+  @override
+  String get onbBatteryTitle => 'Que nada apague tu alarma';
+
+  @override
+  String get onbBatteryXiaomi =>
+      'En Ajustes → Batería, elige «Sin restricciones» y activa «Inicio automático».';
+
+  @override
+  String get onbBatteryHuawei =>
+      'En Ajustes → Batería → Inicio de aplicaciones, desactiva «Gestionar automáticamente» y deja las tres opciones activadas.';
+
+  @override
+  String get onbBatteryOppo =>
+      'En Ajustes → Batería, permite la actividad en segundo plano y el inicio automático.';
+
+  @override
+  String get onbBatteryVivo =>
+      'En Ajustes → Batería → Consumo en segundo plano, permite el consumo alto.';
+
+  @override
+  String get onbBatterySamsung =>
+      'En Ajustes → Batería → Límites de uso en segundo plano, añade la app a «Nunca en suspensión».';
+
+  @override
+  String get onbTipTitle => 'Un consejo para esta noche';
+
+  @override
+  String get onbTipBody =>
+      'Deja el móvil boca arriba y cargando en la mesilla para ver el amanecer.';
+
+  @override
+  String get onbDone => 'Listo';
 }
