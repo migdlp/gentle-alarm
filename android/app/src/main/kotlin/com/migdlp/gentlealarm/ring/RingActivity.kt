@@ -3,7 +3,6 @@ package com.migdlp.gentlealarm.ring
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
-import androidx.activity.addCallback
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -34,7 +33,11 @@ class RingActivity : FlutterActivity() {
             systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             hide(WindowInsetsCompat.Type.systemBars())
         }
-        onBackPressedDispatcher.addCallback(this) { /* Atrás no cierra la alarma */ }
+    }
+
+    @Deprecated("Atrás no cierra la alarma")
+    override fun onBackPressed() {
+        // intencionadamente vacío
     }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
