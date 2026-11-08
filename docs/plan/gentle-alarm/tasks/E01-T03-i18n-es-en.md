@@ -2,7 +2,7 @@
 id: E01-T03
 title: Internacionalización ES/EN con ARB y gen-l10n
 epic: E01
-status: todo
+status: done
 depends_on: [E01-T01]
 requirements: [RNF-07]
 size: S
@@ -46,3 +46,6 @@ flutter gen-l10n && flutter analyze && flutter test
 
 ## Si te bloqueas
 - Si `synthetic-package` da un aviso de obsolescencia en tu versión de Flutter, elimina esa línea y deja `output-dir`, y anótalo.
+
+## Notas de implementación
+- ARB es/en con appTitle y appTagline, l10n.yaml, strings.xml localizado y GentleAlarmApp en main.dart (acepta locale para pruebas). Se usa AppLocalizations.of(c)! porque con synthetic-package false el getter es nullable. flutter test: 3 OK (RED previo: gen-l10n ausente). Pendiente manual: comprobar el nombre en el launcher del emulador.
