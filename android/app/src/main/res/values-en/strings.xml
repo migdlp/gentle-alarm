@@ -3,4 +3,10 @@
     <string name="channel_missed_name">Missed alarms</string>
     <string name="missed_title">Missed alarm · %1$s</string>
     <string name="missed_body">We didn\'t want to shout you awake. All good?</string>
+    <string name="channel_ring_name">Ringing alarm</string>
+    <string name="ring_title_sunrise">Sunrise · rings at %1$s</string>
+    <string name="ring_title_ringing">Good morning · %1$s</string>
+    <string name="ring_title_snoozed">A little longer · back at %1$s</string>
+    <string name="action_dismiss">Turn off</string>
+    <string name="action_snooze">A little longer</string>
 </resources>

@@ -3,4 +3,10 @@
     <string name="channel_missed_name">Alarmas no atendidas</string>
     <string name="missed_title">Alarma no atendida · %1$s</string>
     <string name="missed_body">No te hemos querido despertar a gritos. ¿Todo bien?</string>
+    <string name="channel_ring_name">Alarma sonando</string>
+    <string name="ring_title_sunrise">Amaneciendo · suena a las %1$s</string>
+    <string name="ring_title_ringing">Buenos días · %1$s</string>
+    <string name="ring_title_snoozed">Un ratito más · vuelve a las %1$s</string>
+    <string name="action_dismiss">Apagar</string>
+    <string name="action_snooze">Un ratito más</string>
 </resources>

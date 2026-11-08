@@ -13,7 +13,7 @@ import android.util.Log
 import kotlin.math.max
 import kotlin.math.roundToInt
 
-class AlarmAudioPlayer(private val context: Context, private val listener: Listener) {
+class AlarmAudioPlayer(private val context: Context, private val listener: Listener) : AudioPort {
     interface Listener {
         fun onFocusLost()
         fun onFocusGained()
@@ -53,7 +53,7 @@ class AlarmAudioPlayer(private val context: Context, private val listener: Liste
         }
     }
 
-    fun start(resolved: Resolved, maxVolumePercent: Int, startVolume: Float, rampMs: Long) {
+    override fun start(resolved: Resolved, maxVolumePercent: Int, startVolume: Float, rampMs: Long) {
         fadeToken++
         handler.removeCallbacks(rampTick)
         fixSystemVolume(maxVolumePercent)
@@ -67,7 +67,7 @@ class AlarmAudioPlayer(private val context: Context, private val listener: Liste
         handler.post(rampTick)
     }
 
-    fun stop(fadeMs: Long) {
+    override fun stop(fadeMs: Long) {
         handler.removeCallbacks(rampTick)
         ramp = null
         val p = player ?: return
@@ -85,12 +85,12 @@ class AlarmAudioPlayer(private val context: Context, private val listener: Liste
         handler.post(step)
     }
 
-    fun pause() {
+    override fun pause() {
         handler.removeCallbacks(rampTick)
         player?.takeIf { it.isPlaying }?.pause()
     }
 
-    fun resume(rampMs: Long) {
+    override fun resume(rampMs: Long) {
         val p = player ?: return
         fadeToken++
         setVolume(0f)

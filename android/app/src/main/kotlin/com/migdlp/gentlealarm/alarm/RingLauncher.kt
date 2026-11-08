@@ -8,4 +8,8 @@ object RingLauncher {
     fun onFire(context: Context, alarmId: String, ringAtMs: Long) {
         Log.i("RingLauncher", "FIRE alarmId=$alarmId ringAt=$ringAtMs")
     }
+
+    fun onSessionEnded(context: Context, alarmId: String, reason: String, ringAtMs: Long) {
+        Log.i("RingLauncher", "ended alarmId=$alarmId reason=$reason ringAt=$ringAtMs")
+    }
 }
