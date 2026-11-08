@@ -493,6 +493,36 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Seguir durmiendo'**
   String get keepSleeping;
+
+  /// No description provided for @swipeUpToStop.
+  ///
+  /// In es, this message translates to:
+  /// **'Desliza el sol hacia arriba'**
+  String get swipeUpToStop;
+
+  /// No description provided for @stopAlarmA11y.
+  ///
+  /// In es, this message translates to:
+  /// **'Apagar alarma'**
+  String get stopAlarmA11y;
+
+  /// No description provided for @snoozeButton.
+  ///
+  /// In es, this message translates to:
+  /// **'Un ratito más'**
+  String get snoozeButton;
+
+  /// No description provided for @snoozesLeftText.
+  ///
+  /// In es, this message translates to:
+  /// **'{count, plural, =1{Queda 1} other{Quedan {count}}}'**
+  String snoozesLeftText(int count);
+
+  /// No description provided for @noMoreSnoozes.
+  ///
+  /// In es, this message translates to:
+  /// **'Ya no quedan más ratitos'**
+  String get noMoreSnoozes;
 }
 
 class _AppLocalizationsDelegate

@@ -151,5 +151,17 @@
     }
   },
   "wakeEarly": "I'm already awake",
-  "keepSleeping": "Keep sleeping"
+  "keepSleeping": "Keep sleeping",
+  "swipeUpToStop": "Slide the sun up",
+  "stopAlarmA11y": "Turn off alarm",
+  "snoozeButton": "A little longer",
+  "snoozesLeftText": "{count, plural, =1{1 left} other{{count} left}}",
+  "@snoozesLeftText": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noMoreSnoozes": "No more snoozes left"
 }

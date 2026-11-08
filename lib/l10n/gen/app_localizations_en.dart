@@ -231,4 +231,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get keepSleeping => 'Keep sleeping';
+
+  @override
+  String get swipeUpToStop => 'Slide the sun up';
+
+  @override
+  String get stopAlarmA11y => 'Turn off alarm';
+
+  @override
+  String get snoozeButton => 'A little longer';
+
+  @override
+  String snoozesLeftText(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count left',
+      one: '1 left',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get noMoreSnoozes => 'No more snoozes left';
 }

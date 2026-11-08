@@ -158,5 +158,17 @@
     }
   },
   "wakeEarly": "Ya estoy despierto/a",
-  "keepSleeping": "Seguir durmiendo"
+  "keepSleeping": "Seguir durmiendo",
+  "swipeUpToStop": "Desliza el sol hacia arriba",
+  "stopAlarmA11y": "Apagar alarma",
+  "snoozeButton": "Un ratito más",
+  "snoozesLeftText": "{count, plural, =1{Queda 1} other{Quedan {count}}}",
+  "@snoozesLeftText": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noMoreSnoozes": "Ya no quedan más ratitos"
 }

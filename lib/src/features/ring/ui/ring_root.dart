@@ -8,6 +8,7 @@ import 'package:gentle_alarm/src/features/ring/domain/ring_session.dart';
 import 'package:gentle_alarm/src/features/ring/domain/sunrise.dart';
 import 'package:gentle_alarm/src/features/ring/state/brightness_override.dart';
 import 'package:gentle_alarm/src/features/ring/state/ring_controller.dart';
+import 'package:gentle_alarm/src/features/ring/ui/ringing_view.dart';
 import 'package:gentle_alarm/src/features/ring/ui/sunrise_view.dart';
 
 class RingRoot extends ConsumerStatefulWidget {
@@ -79,6 +80,8 @@ class _RingRootState extends ConsumerState<RingRoot> {
       body = const SizedBox.shrink();
     } else if (session.state == RingState.sunrise) {
       body = SunriseView(session: session, now: _now);
+    } else if (session.state == RingState.ringing) {
+      body = RingingView(session: session, now: _now);
     } else {
       body = Center(
         child: Text(
