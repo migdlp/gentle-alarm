@@ -2,7 +2,7 @@
 id: E01-T04
 title: Tema claro/oscuro, paleta y tipografía Nunito
 epic: E01
-status: todo
+status: done
 depends_on: [E01-T03]
 requirements: [RNF-05]
 size: S
@@ -46,3 +46,6 @@ flutter analyze && flutter test
 
 ## Si te bloqueas
 - Si un par no llega a 4,5, no cambies el token: para y reporta el par y la ratio.
+
+## Notas de implementación
+- Palette, tema claro/oscuro, GentleAlarmApp movida a lib/src/app.dart y Nunito (instancias estáticas 400/600/700 generadas con fonttools desde la fuente variable oficial de googlefonts/nunito, con OFL.txt). Los 6 pares superan 4,5:1. Pendiente manual: capturas claro/oscuro en la PR.
