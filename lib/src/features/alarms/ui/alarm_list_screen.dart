@@ -7,6 +7,7 @@ import 'package:gentle_alarm/src/features/alarms/domain/alarm.dart';
 import 'package:gentle_alarm/src/features/alarms/state/alarms_providers.dart';
 import 'package:gentle_alarm/src/features/alarms/ui/alarm_editor_screen.dart';
 import 'package:gentle_alarm/src/features/alarms/ui/widgets/alarm_tile.dart';
+import 'package:gentle_alarm/src/features/permissions/ui/health_banner.dart';
 
 class AlarmListScreen extends ConsumerStatefulWidget {
   const AlarmListScreen({super.key});
@@ -51,12 +52,19 @@ class _AlarmListScreenState extends ConsumerState<AlarmListScreen> {
           ),
         ],
       ),
-      body: alarms.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('$e')),
-        data: (list) => list.isEmpty
-            ? _EmptyState(onCreate: _create)
-            : _AlarmList(alarms: list),
+      body: Column(
+        children: [
+          const HealthBanner(),
+          Expanded(
+            child: alarms.when(
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (e, _) => Center(child: Text('$e')),
+              data: (list) => list.isEmpty
+                  ? _EmptyState(onCreate: _create)
+                  : _AlarmList(alarms: list),
+            ),
+          ),
+        ],
       ),
       floatingActionButton: alarms.value?.isNotEmpty ?? false
           ? FloatingActionButton.extended(

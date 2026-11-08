@@ -248,5 +248,10 @@
   "onbBatterySamsung": "En Ajustes → Batería → Límites de uso en segundo plano, añade la app a «Nunca en suspensión».",
   "onbTipTitle": "Un consejo para esta noche",
   "onbTipBody": "Deja el móvil boca arriba y cargando en la mesilla para ver el amanecer.",
-  "onbDone": "Listo"
+  "onbDone": "Listo",
+  "healthTitle": "Tu alarma podría no sonar",
+  "healthNotif": "Faltan los avisos de alarma.",
+  "healthExact": "Faltan las alarmas puntuales.",
+  "healthFull": "Falta la pantalla completa para el amanecer.",
+  "healthFix": "Arreglarlo"
 }

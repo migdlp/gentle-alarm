@@ -425,4 +425,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get onbDone => 'Listo';
+
+  @override
+  String get healthTitle => 'Tu alarma podría no sonar';
+
+  @override
+  String get healthNotif => 'Faltan los avisos de alarma.';
+
+  @override
+  String get healthExact => 'Faltan las alarmas puntuales.';
+
+  @override
+  String get healthFull => 'Falta la pantalla completa para el amanecer.';
+
+  @override
+  String get healthFix => 'Arreglarlo';
 }

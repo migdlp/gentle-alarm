@@ -829,6 +829,36 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Listo'**
   String get onbDone;
+
+  /// No description provided for @healthTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Tu alarma podría no sonar'**
+  String get healthTitle;
+
+  /// No description provided for @healthNotif.
+  ///
+  /// In es, this message translates to:
+  /// **'Faltan los avisos de alarma.'**
+  String get healthNotif;
+
+  /// No description provided for @healthExact.
+  ///
+  /// In es, this message translates to:
+  /// **'Faltan las alarmas puntuales.'**
+  String get healthExact;
+
+  /// No description provided for @healthFull.
+  ///
+  /// In es, this message translates to:
+  /// **'Falta la pantalla completa para el amanecer.'**
+  String get healthFull;
+
+  /// No description provided for @healthFix.
+  ///
+  /// In es, this message translates to:
+  /// **'Arreglarlo'**
+  String get healthFix;
 }
 
 class _AppLocalizationsDelegate

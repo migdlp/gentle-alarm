@@ -241,5 +241,10 @@
   "onbBatterySamsung": "In Settings → Battery → Background usage limits, add the app to \"Never sleeping apps\".",
   "onbTipTitle": "A tip for tonight",
   "onbTipBody": "Leave your phone face up and charging on your nightstand to see the sunrise.",
-  "onbDone": "Done"
+  "onbDone": "Done",
+  "healthTitle": "Your alarm might not ring",
+  "healthNotif": "Alarm notifications are off.",
+  "healthExact": "On-time alarms are off.",
+  "healthFull": "Full screen for the sunrise is off.",
+  "healthFix": "Fix it"
 }

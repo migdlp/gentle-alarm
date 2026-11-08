@@ -2,7 +2,7 @@
 id: E07-T03
 title: Banner «Tu alarma podría no sonar» en la lista
 epic: E07
-status: todo
+status: done
 depends_on: [E07-T02]
 requirements: [RF-51]
 size: S
@@ -36,7 +36,7 @@ Si falta un permiso crítico, la lista de alarmas muestra un banner amable con e
 3. GREEN.
 
 ## Criterios de aceptación
-- [ ] Las 3 pruebas pasan.
+- [x] Las 3 pruebas pasan.
 
 ## Verificación
 ```bash
@@ -48,3 +48,6 @@ flutter gen-l10n && flutter analyze && flutter test test/features/permissions
 
 ## Si te bloqueas
 - Si el banner parpadea al volver de Ajustes, mantén el último valor mientras recarga (`AsyncValue` con `skipLoadingOnReload: true`).
+
+## Notas de implementación
+- HealthBanner (MaterialBanner incrustado en la lista, mantiene el último valor al recargar) con acción según el primer permiso que falta; 3 tests OK.

@@ -427,4 +427,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get onbDone => 'Done';
+
+  @override
+  String get healthTitle => 'Your alarm might not ring';
+
+  @override
+  String get healthNotif => 'Alarm notifications are off.';
+
+  @override
+  String get healthExact => 'On-time alarms are off.';
+
+  @override
+  String get healthFull => 'Full screen for the sunrise is off.';
+
+  @override
+  String get healthFix => 'Fix it';
 }
