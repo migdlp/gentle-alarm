@@ -219,4 +219,15 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get deleteAlarm => 'Borrar';
+
+  @override
+  String sunriseRingsAt(String time) {
+    return 'Suena a las $time';
+  }
+
+  @override
+  String get wakeEarly => 'Ya estoy despierto/a';
+
+  @override
+  String get keepSleeping => 'Seguir durmiendo';
 }

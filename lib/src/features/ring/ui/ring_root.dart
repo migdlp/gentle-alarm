@@ -1,12 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gentle_alarm/src/core/platform/ring_channel.dart';
 import 'package:gentle_alarm/src/features/ring/domain/ring_session.dart';
+import 'package:gentle_alarm/src/features/ring/domain/sunrise.dart';
+import 'package:gentle_alarm/src/features/ring/state/brightness_override.dart';
 import 'package:gentle_alarm/src/features/ring/state/ring_controller.dart';
+import 'package:gentle_alarm/src/features/ring/ui/sunrise_view.dart';
 
 class RingRoot extends ConsumerStatefulWidget {
-  const RingRoot({super.key});
+  const RingRoot({super.key, this.clock = DateTime.now});
+
+  final DateTime Function() clock;
 
   @override
   ConsumerState<RingRoot> createState() => _RingRootState();
@@ -14,6 +21,37 @@ class RingRoot extends ConsumerStatefulWidget {
 
 class _RingRootState extends ConsumerState<RingRoot> {
   RingState? _lastLive;
+  late DateTime _now;
+  Timer? _timer;
+  double _lastBrightness = -1;
+
+  @override
+  void initState() {
+    super.initState();
+    _now = widget.clock();
+    _timer = Timer.periodic(const Duration(milliseconds: 500), (_) {
+      _now = widget.clock();
+      _syncBrightness();
+      if (mounted) setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  void _syncBrightness() {
+    final session = ref.read(ringControllerProvider).value;
+    if (session == null) return;
+    final target =
+        ref.read(brightnessOverrideProvider) ?? targetBrightness(session, _now);
+    if ((target - _lastBrightness).abs() > 0.005) {
+      _lastBrightness = target;
+      ref.read(ringChannelProvider).setBrightness(target);
+    }
+  }
 
   void _close() {
     if (_lastLive == RingState.greeting) {
@@ -32,20 +70,26 @@ class _RingRootState extends ConsumerState<RingRoot> {
         _close();
       } else if (s != null) {
         _lastLive = s.state;
+        _syncBrightness();
       }
     });
     final session = ref.watch(ringControllerProvider).value;
+    final Widget body;
+    if (session == null) {
+      body = const SizedBox.shrink();
+    } else if (session.state == RingState.sunrise) {
+      body = SunriseView(session: session, now: _now);
+    } else {
+      body = Center(
+        child: Text(
+          session.state.name,
+          style: const TextStyle(color: Colors.white, fontSize: 24),
+        ),
+      );
+    }
     return PopScope(
       canPop: false,
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-          child: Text(
-            session?.state.name ?? '',
-            style: const TextStyle(color: Colors.white, fontSize: 24),
-          ),
-        ),
-      ),
+      child: Scaffold(backgroundColor: Colors.black, body: body),
     );
   }
 }

@@ -141,5 +141,15 @@
       }
     }
   },
-  "deleteAlarm": "Delete"
+  "deleteAlarm": "Delete",
+  "sunriseRingsAt": "Rings at {time}",
+  "@sunriseRingsAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "wakeEarly": "I'm already awake",
+  "keepSleeping": "Keep sleeping"
 }

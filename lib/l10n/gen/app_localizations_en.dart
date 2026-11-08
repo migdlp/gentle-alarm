@@ -220,4 +220,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get deleteAlarm => 'Delete';
+
+  @override
+  String sunriseRingsAt(String time) {
+    return 'Rings at $time';
+  }
+
+  @override
+  String get wakeEarly => 'I\'m already awake';
+
+  @override
+  String get keepSleeping => 'Keep sleeping';
 }

@@ -475,6 +475,24 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Borrar'**
   String get deleteAlarm;
+
+  /// No description provided for @sunriseRingsAt.
+  ///
+  /// In es, this message translates to:
+  /// **'Suena a las {time}'**
+  String sunriseRingsAt(String time);
+
+  /// No description provided for @wakeEarly.
+  ///
+  /// In es, this message translates to:
+  /// **'Ya estoy despierto/a'**
+  String get wakeEarly;
+
+  /// No description provided for @keepSleeping.
+  ///
+  /// In es, this message translates to:
+  /// **'Seguir durmiendo'**
+  String get keepSleeping;
 }
 
 class _AppLocalizationsDelegate
