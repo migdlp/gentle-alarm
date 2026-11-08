@@ -2,7 +2,7 @@
 id: E03-T01
 title: SettingsRepository con valores por defecto de alarmas
 epic: E03
-status: todo
+status: done
 depends_on: [E02-T07]
 requirements: [RF-08]
 size: S
@@ -29,8 +29,8 @@ Claves (`02-architecture.md` §3.3): `defaults.sunriseMinutes` (20), `defaults.r
 5. GREEN.
 
 ## Criterios de aceptación
-- [ ] Los 4 tests pasan.
-- [ ] `main.dart` inicializa las preferencias antes de `runApp`.
+- [x] Los 4 tests pasan.
+- [x] `main.dart` inicializa las preferencias antes de `runApp`.
 
 ## Verificación
 ```bash
@@ -42,3 +42,6 @@ flutter analyze && flutter test test/features/settings
 
 ## Si te bloqueas
 - No uses `SharedPreferencesAsync` ni `SharedPreferencesWithCache`: usa `SharedPreferences.getInstance()`.
+
+## Notas de implementación
+- SettingsRepository + providers (sharedPreferencesProvider sobrescrito en main.dart). 4 tests OK.
