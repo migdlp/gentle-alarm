@@ -35,6 +35,23 @@ data class SessionSnapshot(
         put("brightnessRampFromSnooze", brightnessRampFromSnooze)
     }
 
+    fun toMap(): Map<String, Any?> = mapOf(
+        "alarmId" to alarmId,
+        "label" to label,
+        "ringAtEpochMs" to ringAtEpochMs,
+        "sunriseStartEpochMs" to sunriseStartEpochMs,
+        "state" to state,
+        "stateSinceEpochMs" to stateSinceEpochMs,
+        "snoozesLeft" to snoozesLeft,
+        "autoSnoozeUsed" to autoSnoozeUsed,
+        "snoozeUntilEpochMs" to snoozeUntilEpochMs,
+        "segmentStartEpochMs" to segmentStartEpochMs,
+        "endReason" to endReason,
+        "isPreview" to isPreview,
+        "soundFallback" to soundFallback,
+        "brightnessRampFromSnooze" to brightnessRampFromSnooze,
+    )
+
     companion object {
         fun fromJson(o: JSONObject): SessionSnapshot = SessionSnapshot(
             alarmId = o.getString("alarmId"),

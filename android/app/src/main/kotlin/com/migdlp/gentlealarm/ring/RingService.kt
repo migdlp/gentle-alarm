@@ -41,9 +41,17 @@ class RingService : Service(), AlarmAudioPlayer.Listener {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         when (intent?.action) {
             ACTION_START -> if (machine == null) begin(intent) else Unit
-            ACTION_SNOOZE -> dispatch(listOf(RingEvent.Snooze))
-            ACTION_DISMISS -> dispatch(dismissAllEvents())
-            ACTION_EVENT -> eventFor(intent.getStringExtra(EXTRA_EVENT))?.let { dispatch(listOf(it)) }
+            ACTION_SNOOZE, ACTION_DISMISS, ACTION_EVENT -> {
+                if (machine == null && !restore()) {
+                    stopSelf()
+                    return START_NOT_STICKY
+                }
+                when (intent.action) {
+                    ACTION_SNOOZE -> dispatch(listOf(RingEvent.Snooze))
+                    ACTION_DISMISS -> dispatch(dismissAllEvents())
+                    else -> eventFor(intent.getStringExtra(EXTRA_EVENT))?.let { dispatch(listOf(it)) }
+                }
+            }
             else -> if (machine == null && !restore()) {
                 stopSelf()
                 return START_NOT_STICKY
