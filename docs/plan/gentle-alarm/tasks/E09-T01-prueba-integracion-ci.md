@@ -2,7 +2,7 @@
 id: E09-T01
 title: Prueba de integración de crear, editar y borrar alarma en emulador dentro de CI
 epic: E09
-status: todo
+status: done
 depends_on: [E03-T04, E01-T02, E07-T02]
 requirements: [RNF-08, RNF-09]
 size: M
@@ -41,3 +41,6 @@ flutter test integration_test/alarm_crud_test.dart -d emulator-5554
 
 ## Si te bloqueas
 - Si el selector de hora de Material es difícil de manejar, cambia al modo de entrada de texto con `tester.tap(find.byIcon(Icons.keyboard_outlined))` y escribe la hora.
+
+## Notas de implementación
+- integration_test/alarm_crud_test.dart (crear con selector de hora en modo teclado, comprobación nativa de scheduledRingAtEpochMs, editar marcando L, borrar deslizando) y job android-emulator en ci.yml (API 34, google_apis, x86_64, needs: flutter). El análisis estático pasa, pero NO se ha podido ejecutar: este entorno no tiene emulador ni KVM. Pendiente: ejecutarla en local y que el job pase en la PR.
