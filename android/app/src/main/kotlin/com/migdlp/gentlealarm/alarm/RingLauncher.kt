@@ -81,6 +81,9 @@ object RingLauncher {
         ContextCompat.startForegroundService(context, intent)
     }
 
+    fun startPreview(context: Context, spec: AlarmSpec) =
+        start(context, RingRequest.preview(spec, System.currentTimeMillis()))
+
     fun onSessionEnded(context: Context, alarmId: String, reason: String, ringAtMs: Long) {
         Log.i(TAG, "ended alarmId=$alarmId reason=$reason ringAt=$ringAtMs")
         SessionEndHandler(AlarmStore.from(context), AlarmScheduler.from(context), System::currentTimeMillis)

@@ -40,6 +40,9 @@ class AlarmRepository {
   Future<Alarm> setEnabled(String id, bool enabled) =>
       _guard(() async => Alarm.fromMap(await _channel.setEnabled(id, enabled)));
 
+  Future<void> startPreview(Alarm alarm) =>
+      _guard(() => _channel.startPreview(alarm.toMap()));
+
   Future<Alarm> setSkipNext(String id, bool skip) =>
       _guard(() async => Alarm.fromMap(await _channel.setSkipNext(id, skip)));
 }

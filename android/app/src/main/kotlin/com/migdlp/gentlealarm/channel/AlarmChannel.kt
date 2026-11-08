@@ -3,6 +3,8 @@ package com.migdlp.gentlealarm.channel
 import android.content.Context
 import com.migdlp.gentlealarm.alarm.AlarmScheduler
 import com.migdlp.gentlealarm.alarm.AlarmStore
+import com.migdlp.gentlealarm.alarm.RingLauncher
+import com.migdlp.gentlealarm.ring.RingSessionBus
 import com.migdlp.gentlealarm.alarm.ScheduleFailedException
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodCall
@@ -18,6 +20,8 @@ object AlarmChannel {
             AlarmScheduler.from(context),
             System::currentTimeMillis,
             ZoneId::systemDefault,
+            sessionActive = { RingSessionBus.current() != null },
+            launchPreview = { RingLauncher.start(context, it) },
         )
         MethodChannel(engine.dartExecutor.binaryMessenger, NAME).setMethodCallHandler { call, result ->
             try {
@@ -40,6 +44,10 @@ object AlarmChannel {
             null
         }
         "setEnabled" -> h.setEnabled(call.argument<String>("id")!!, call.argument<Boolean>("enabled")!!)
+        "startPreview" -> {
+            h.startPreview(call.arguments as Map<*, *>)
+            null
+        }
         "setSkipNext" -> h.setSkipNext(call.argument<String>("id")!!, call.argument<Boolean>("skip")!!)
         else -> throw ChannelError("INTERNAL", "método desconocido: ${call.method}")
     }

@@ -121,6 +121,24 @@ class _AlarmEditorScreenState extends ConsumerState<AlarmEditorScreen> {
     }
   }
 
+  Future<void> _preview() async {
+    final l10n = AppLocalizations.of(context)!;
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      await ref
+          .read(alarmRepositoryProvider)
+          .startPreview(_alarm.copyWith(label: _label.text.trim()));
+    } on AlarmException catch (e) {
+      messenger.showSnackBar(
+        SnackBar(
+          content: Text(
+            e.code == 'SESSION_ACTIVE' ? l10n.previewBusy : l10n.errorGeneric,
+          ),
+        ),
+      );
+    }
+  }
+
   Future<void> _confirmDiscard() async {
     final l10n = AppLocalizations.of(context)!;
     final discard = await showDialog<bool>(
@@ -226,6 +244,12 @@ class _AlarmEditorScreenState extends ConsumerState<AlarmEditorScreen> {
             FilledButton(
               onPressed: _saving ? null : _save,
               child: Text(l10n.save),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: _preview,
+              icon: const Icon(Icons.play_circle_outline),
+              label: Text(l10n.previewButton),
             ),
           ],
         ),

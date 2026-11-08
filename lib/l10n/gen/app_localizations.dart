@@ -859,6 +859,18 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Arreglarlo'**
   String get healthFix;
+
+  /// No description provided for @previewButton.
+  ///
+  /// In es, this message translates to:
+  /// **'Probar despertar'**
+  String get previewButton;
+
+  /// No description provided for @previewBusy.
+  ///
+  /// In es, this message translates to:
+  /// **'Ya hay una alarma sonando.'**
+  String get previewBusy;
 }
 
 class _AppLocalizationsDelegate

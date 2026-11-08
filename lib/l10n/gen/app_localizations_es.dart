@@ -440,4 +440,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get healthFix => 'Arreglarlo';
+
+  @override
+  String get previewButton => 'Probar despertar';
+
+  @override
+  String get previewBusy => 'Ya hay una alarma sonando.';
 }

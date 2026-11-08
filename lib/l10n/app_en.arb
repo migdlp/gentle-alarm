@@ -246,5 +246,7 @@
   "healthNotif": "Alarm notifications are off.",
   "healthExact": "On-time alarms are off.",
   "healthFull": "Full screen for the sunrise is off.",
-  "healthFix": "Fix it"
+  "healthFix": "Fix it",
+  "previewButton": "Try the wake-up",
+  "previewBusy": "An alarm is already ringing."
 }

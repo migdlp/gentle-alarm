@@ -442,4 +442,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get healthFix => 'Fix it';
+
+  @override
+  String get previewButton => 'Try the wake-up';
+
+  @override
+  String get previewBusy => 'An alarm is already ringing.';
 }

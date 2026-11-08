@@ -23,6 +23,9 @@ class FakeRepo implements AlarmRepository {
   }
 
   @override
+  Future<void> startPreview(Alarm alarm) async {}
+
+  @override
   Future<Alarm> save(Alarm alarm) async => alarm;
   @override
   Future<void> delete(String id) async {

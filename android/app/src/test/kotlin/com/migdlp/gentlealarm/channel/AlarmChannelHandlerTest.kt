@@ -33,7 +33,12 @@ class AlarmChannelHandlerTest {
     private val now = at(9, 22, 0) // lunes
     private val store = AlarmStore(InMemoryKeyValueStore())
     private val port = FakePort()
-    private val h = AlarmChannelHandler(store, AlarmScheduler(store, port, { now }, { zone }), { now }, { zone })
+    private var active = false
+    private val launched = mutableListOf<com.migdlp.gentlealarm.ring.RingRequest>()
+    private val h = AlarmChannelHandler(
+        store, AlarmScheduler(store, port, { now }, { zone }), { now }, { zone },
+        sessionActive = { active }, launchPreview = { launched += it },
+    )
 
     private fun expectError(code: String, msg: String? = null, block: () -> Unit) {
         try {
@@ -97,5 +102,27 @@ class AlarmChannelHandlerTest {
         h.upsert(AlarmSpec("early2", hour = 6, minute = 15, createdAtEpochMs = 1).toMap())
         assertEquals(listOf("early", "early2", "late"), h.list().map { it["id"] })
         assertNotNull(h.list().first()["scheduledRingAtEpochMs"])
+    }
+
+    @Test fun previewWithActiveSessionFails() {
+        active = true
+        expectError("SESSION_ACTIVE") { h.startPreview(AlarmSpec("a").toMap()) }
+        assertEquals(0, launched.size)
+    }
+
+    @Test fun previewLaunchesWithoutSaving() {
+        h.startPreview(AlarmSpec("a", sunriseMinutes = 20).toMap())
+        val r = launched.single()
+        assertEquals(true, r.config.isPreview)
+        assertEquals(now + 30_000, r.config.ringAtMs)
+        assertEquals("preview", r.config.alarmId)
+        assertEquals(false, r.config.skipSunrise)
+        assertEquals(false, r.quietSunrise)
+        assertEquals(0, store.list().size)
+    }
+
+    @Test fun previewWithoutSunriseSkipsIt() {
+        h.startPreview(AlarmSpec("a", sunriseMinutes = 0).toMap())
+        assertEquals(true, launched.single().config.skipSunrise)
     }
 }

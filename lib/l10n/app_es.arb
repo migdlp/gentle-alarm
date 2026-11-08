@@ -253,5 +253,7 @@
   "healthNotif": "Faltan los avisos de alarma.",
   "healthExact": "Faltan las alarmas puntuales.",
   "healthFull": "Falta la pantalla completa para el amanecer.",
-  "healthFix": "Arreglarlo"
+  "healthFix": "Arreglarlo",
+  "previewButton": "Probar despertar",
+  "previewBusy": "Ya hay una alarma sonando."
 }

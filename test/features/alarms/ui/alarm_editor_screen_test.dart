@@ -9,8 +9,10 @@ import 'package:gentle_alarm/src/features/alarms/ui/alarm_editor_screen.dart';
 import 'package:gentle_alarm/src/features/settings/state/settings_providers.dart';
 
 class FakeRepo implements AlarmRepository {
-  FakeRepo({this.fail});
+  FakeRepo({this.fail, this.previewFail});
   final AlarmException? fail;
+  final AlarmException? previewFail;
+  final previews = <Alarm>[];
   final saved = <Alarm>[];
 
   @override
@@ -28,6 +30,12 @@ class FakeRepo implements AlarmRepository {
         30,
       ).millisecondsSinceEpoch,
     );
+  }
+
+  @override
+  Future<void> startPreview(Alarm alarm) async {
+    if (previewFail != null) throw previewFail!;
+    previews.add(alarm);
   }
 
   @override
@@ -73,6 +81,19 @@ Future<void> _open(
   );
   await tester.tap(find.text('abrir'));
   await tester.pumpAndSettle();
+}
+
+Future<void> _scrollTo(WidgetTester tester, String text) async {
+  await tester.scrollUntilVisible(
+    find.text(text),
+    300,
+    scrollable: find
+        .descendant(
+          of: find.byType(ListView),
+          matching: find.byType(Scrollable),
+        )
+        .first,
+  );
 }
 
 Future<void> _save(WidgetTester tester) async {
@@ -152,5 +173,28 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.textContaining('No hemos podido programar'), findsOneWidget);
     expect(find.byType(AlarmEditorScreen), findsOneWidget);
+  });
+
+  testWidgets('Probar despertar envía la alarma en edición', (tester) async {
+    final repo = FakeRepo();
+    await _open(tester, repo);
+    await tester.tap(find.byKey(const ValueKey('day1')));
+    await tester.pump();
+    await _scrollTo(tester, 'Probar despertar');
+    await tester.tap(find.text('Probar despertar'));
+    await tester.pumpAndSettle();
+    expect(repo.previews.single.weekdays, [1]);
+    expect(repo.saved, isEmpty);
+  });
+
+  testWidgets('SESSION_ACTIVE muestra previewBusy', (tester) async {
+    final repo = FakeRepo(
+      previewFail: const AlarmException(code: 'SESSION_ACTIVE'),
+    );
+    await _open(tester, repo);
+    await _scrollTo(tester, 'Probar despertar');
+    await tester.tap(find.text('Probar despertar'));
+    await tester.pumpAndSettle();
+    expect(find.text('Ya hay una alarma sonando.'), findsOneWidget);
   });
 }

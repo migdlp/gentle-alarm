@@ -28,6 +28,25 @@ data class RingRequest(
     }
 
     companion object {
+        /** Sesión de vista previa: no se guarda ninguna alarma. */
+        fun preview(spec: com.migdlp.gentlealarm.alarm.AlarmSpec, nowMs: Long) = RingRequest(
+            config = SessionConfig(
+                alarmId = "preview",
+                label = spec.label,
+                ringAtMs = nowMs + 30_000,
+                sunriseStartMs = nowMs,
+                vibrate = spec.vibrate,
+                isPreview = true,
+                skipSunrise = spec.sunriseMinutes == 0,
+            ),
+            soundId = spec.soundId,
+            customSoundUri = spec.customSoundUri,
+            maxVolumePercent = spec.maxVolumePercent,
+            sunriseMinutes = spec.sunriseMinutes,
+            rampMinutes = spec.rampMinutes,
+            quietSunrise = false,
+        )
+
         fun fromJson(o: JSONObject) = RingRequest(
             config = SessionConfig(
                 alarmId = o.getString("alarmId"),

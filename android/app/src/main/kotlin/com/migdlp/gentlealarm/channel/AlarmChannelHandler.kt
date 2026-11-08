@@ -5,6 +5,7 @@ import com.migdlp.gentlealarm.alarm.AlarmSpec
 import com.migdlp.gentlealarm.alarm.AlarmStore
 import com.migdlp.gentlealarm.alarm.InvalidSpecException
 import com.migdlp.gentlealarm.alarm.NextTriggerCalculator
+import com.migdlp.gentlealarm.ring.RingRequest
 import java.time.ZoneId
 
 class ChannelError(val code: String, message: String?) : RuntimeException(message)
@@ -14,6 +15,8 @@ class AlarmChannelHandler(
     private val scheduler: AlarmScheduler,
     private val clock: () -> Long,
     private val zone: () -> ZoneId,
+    private val sessionActive: () -> Boolean = { false },
+    private val launchPreview: (RingRequest) -> Unit = {},
 ) {
     fun list(): List<Map<String, Any?>> =
         store.list()
@@ -47,5 +50,15 @@ class AlarmChannelHandler(
             NextTriggerCalculator.nextRingAt(spec.copy(skipRingAtEpochMs = null), clock(), zone())
         } else null
         return scheduler.reschedule(spec.copy(skipRingAtEpochMs = skipAt)).toMap()
+    }
+
+    fun startPreview(map: Map<*, *>) {
+        val spec = try {
+            AlarmSpec.fromMap(map).validate()
+        } catch (e: InvalidSpecException) {
+            throw ChannelError("INVALID_SPEC", e.field)
+        }
+        if (sessionActive()) throw ChannelError("SESSION_ACTIVE", null)
+        launchPreview(RingRequest.preview(spec, clock()))
     }
 }

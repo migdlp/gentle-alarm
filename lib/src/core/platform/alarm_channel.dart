@@ -25,4 +25,7 @@ class AlarmChannel {
         'id': id,
         'skip': skip,
       }))!;
+
+  Future<void> startPreview(Map<String, Object?> alarm) =>
+      _ch.invokeMethod<void>('startPreview', alarm);
 }
