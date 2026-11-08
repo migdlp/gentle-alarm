@@ -284,4 +284,75 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get stopPreviewA11y => 'Parar';
+
+  @override
+  String get greetingTitle => 'Buenos días';
+
+  @override
+  String weatherLine(String temp, String condition, String city) {
+    return '$temp °C · $condition en $city';
+  }
+
+  @override
+  String get startDay => 'Empezar el día';
+
+  @override
+  String get weatherClear => 'Despejado';
+
+  @override
+  String get weatherPartlyCloudy => 'Algo nublado';
+
+  @override
+  String get weatherFog => 'Niebla';
+
+  @override
+  String get weatherDrizzle => 'Llovizna';
+
+  @override
+  String get weatherRain => 'Lluvia';
+
+  @override
+  String get weatherSnow => 'Nieve';
+
+  @override
+  String get weatherStorm => 'Tormenta';
+
+  @override
+  String get greetingPhrase1 => 'Hoy no hace falta correr. Un paso cada vez.';
+
+  @override
+  String get greetingPhrase2 =>
+      'Bebe un vaso de agua: tu cuerpo te lo agradecerá.';
+
+  @override
+  String get greetingPhrase3 => 'Respira hondo tres veces antes de levantarte.';
+
+  @override
+  String get greetingPhrase4 =>
+      'Lo que hoy salga bien, cuenta. Lo demás, también.';
+
+  @override
+  String get greetingPhrase5 => 'Abre la ventana y deja entrar el día.';
+
+  @override
+  String get greetingPhrase6 => 'Estírate como si nadie te viera.';
+
+  @override
+  String get greetingPhrase7 => 'Has descansado. Ahora, a por un buen día.';
+
+  @override
+  String get greetingPhrase8 =>
+      'Elige una cosa pequeña que te haga ilusión hoy.';
+
+  @override
+  String get greetingPhrase9 => 'La luz ya está aquí. Tú también.';
+
+  @override
+  String get greetingPhrase10 => 'Despacio también se llega.';
+
+  @override
+  String get greetingPhrase11 => 'Sonríe un segundo: es gratis y funciona.';
+
+  @override
+  String get greetingPhrase12 => 'Hoy empieza algo nuevo, aunque sea pequeño.';
 }

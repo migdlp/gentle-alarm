@@ -193,5 +193,40 @@
       }
     }
   },
-  "stopPreviewA11y": "Parar"
+  "stopPreviewA11y": "Parar",
+  "greetingTitle": "Buenos días",
+  "weatherLine": "{temp} °C · {condition} en {city}",
+  "@weatherLine": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      },
+      "condition": {
+        "type": "String"
+      },
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "startDay": "Empezar el día",
+  "weatherClear": "Despejado",
+  "weatherPartlyCloudy": "Algo nublado",
+  "weatherFog": "Niebla",
+  "weatherDrizzle": "Llovizna",
+  "weatherRain": "Lluvia",
+  "weatherSnow": "Nieve",
+  "weatherStorm": "Tormenta",
+  "greetingPhrase1": "Hoy no hace falta correr. Un paso cada vez.",
+  "greetingPhrase2": "Bebe un vaso de agua: tu cuerpo te lo agradecerá.",
+  "greetingPhrase3": "Respira hondo tres veces antes de levantarte.",
+  "greetingPhrase4": "Lo que hoy salga bien, cuenta. Lo demás, también.",
+  "greetingPhrase5": "Abre la ventana y deja entrar el día.",
+  "greetingPhrase6": "Estírate como si nadie te viera.",
+  "greetingPhrase7": "Has descansado. Ahora, a por un buen día.",
+  "greetingPhrase8": "Elige una cosa pequeña que te haga ilusión hoy.",
+  "greetingPhrase9": "La luz ya está aquí. Tú también.",
+  "greetingPhrase10": "Despacio también se llega.",
+  "greetingPhrase11": "Sonríe un segundo: es gratis y funciona.",
+  "greetingPhrase12": "Hoy empieza algo nuevo, aunque sea pequeño."
 }

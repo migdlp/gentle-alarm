@@ -577,6 +577,138 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Parar'**
   String get stopPreviewA11y;
+
+  /// No description provided for @greetingTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Buenos días'**
+  String get greetingTitle;
+
+  /// No description provided for @weatherLine.
+  ///
+  /// In es, this message translates to:
+  /// **'{temp} °C · {condition} en {city}'**
+  String weatherLine(String temp, String condition, String city);
+
+  /// No description provided for @startDay.
+  ///
+  /// In es, this message translates to:
+  /// **'Empezar el día'**
+  String get startDay;
+
+  /// No description provided for @weatherClear.
+  ///
+  /// In es, this message translates to:
+  /// **'Despejado'**
+  String get weatherClear;
+
+  /// No description provided for @weatherPartlyCloudy.
+  ///
+  /// In es, this message translates to:
+  /// **'Algo nublado'**
+  String get weatherPartlyCloudy;
+
+  /// No description provided for @weatherFog.
+  ///
+  /// In es, this message translates to:
+  /// **'Niebla'**
+  String get weatherFog;
+
+  /// No description provided for @weatherDrizzle.
+  ///
+  /// In es, this message translates to:
+  /// **'Llovizna'**
+  String get weatherDrizzle;
+
+  /// No description provided for @weatherRain.
+  ///
+  /// In es, this message translates to:
+  /// **'Lluvia'**
+  String get weatherRain;
+
+  /// No description provided for @weatherSnow.
+  ///
+  /// In es, this message translates to:
+  /// **'Nieve'**
+  String get weatherSnow;
+
+  /// No description provided for @weatherStorm.
+  ///
+  /// In es, this message translates to:
+  /// **'Tormenta'**
+  String get weatherStorm;
+
+  /// No description provided for @greetingPhrase1.
+  ///
+  /// In es, this message translates to:
+  /// **'Hoy no hace falta correr. Un paso cada vez.'**
+  String get greetingPhrase1;
+
+  /// No description provided for @greetingPhrase2.
+  ///
+  /// In es, this message translates to:
+  /// **'Bebe un vaso de agua: tu cuerpo te lo agradecerá.'**
+  String get greetingPhrase2;
+
+  /// No description provided for @greetingPhrase3.
+  ///
+  /// In es, this message translates to:
+  /// **'Respira hondo tres veces antes de levantarte.'**
+  String get greetingPhrase3;
+
+  /// No description provided for @greetingPhrase4.
+  ///
+  /// In es, this message translates to:
+  /// **'Lo que hoy salga bien, cuenta. Lo demás, también.'**
+  String get greetingPhrase4;
+
+  /// No description provided for @greetingPhrase5.
+  ///
+  /// In es, this message translates to:
+  /// **'Abre la ventana y deja entrar el día.'**
+  String get greetingPhrase5;
+
+  /// No description provided for @greetingPhrase6.
+  ///
+  /// In es, this message translates to:
+  /// **'Estírate como si nadie te viera.'**
+  String get greetingPhrase6;
+
+  /// No description provided for @greetingPhrase7.
+  ///
+  /// In es, this message translates to:
+  /// **'Has descansado. Ahora, a por un buen día.'**
+  String get greetingPhrase7;
+
+  /// No description provided for @greetingPhrase8.
+  ///
+  /// In es, this message translates to:
+  /// **'Elige una cosa pequeña que te haga ilusión hoy.'**
+  String get greetingPhrase8;
+
+  /// No description provided for @greetingPhrase9.
+  ///
+  /// In es, this message translates to:
+  /// **'La luz ya está aquí. Tú también.'**
+  String get greetingPhrase9;
+
+  /// No description provided for @greetingPhrase10.
+  ///
+  /// In es, this message translates to:
+  /// **'Despacio también se llega.'**
+  String get greetingPhrase10;
+
+  /// No description provided for @greetingPhrase11.
+  ///
+  /// In es, this message translates to:
+  /// **'Sonríe un segundo: es gratis y funciona.'**
+  String get greetingPhrase11;
+
+  /// No description provided for @greetingPhrase12.
+  ///
+  /// In es, this message translates to:
+  /// **'Hoy empieza algo nuevo, aunque sea pequeño.'**
+  String get greetingPhrase12;
 }
 
 class _AppLocalizationsDelegate

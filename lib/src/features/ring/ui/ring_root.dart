@@ -5,11 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gentle_alarm/src/core/platform/ring_channel.dart';
 import 'package:gentle_alarm/src/core/time/clock.dart';
+import 'package:gentle_alarm/src/features/greeting/state/weather_providers.dart';
 import 'package:gentle_alarm/src/features/ring/domain/ring_session.dart';
 import 'package:gentle_alarm/src/features/ring/domain/sunrise.dart';
 import 'package:gentle_alarm/src/features/ring/state/brightness_override.dart';
 import 'package:gentle_alarm/src/features/ring/state/ring_controller.dart';
 import 'package:gentle_alarm/src/features/ring/ui/confirm_view.dart';
+import 'package:gentle_alarm/src/features/ring/ui/greeting_view.dart';
 import 'package:gentle_alarm/src/features/ring/ui/ringing_view.dart';
 import 'package:gentle_alarm/src/features/ring/ui/snoozed_view.dart';
 import 'package:gentle_alarm/src/features/ring/ui/sunrise_view.dart';
@@ -26,6 +28,7 @@ class _RingRootState extends ConsumerState<RingRoot> {
   late DateTime _now;
   Timer? _timer;
   double _lastBrightness = -1;
+  bool _weatherRequested = false;
 
   @override
   void initState() {
@@ -71,6 +74,11 @@ class _RingRootState extends ConsumerState<RingRoot> {
           (s == null || s.state == RingState.ended)) {
         _close();
       } else if (s != null) {
+        if (!_weatherRequested &&
+            (s.state == RingState.sunrise || s.state == RingState.ringing)) {
+          _weatherRequested = true;
+          ref.read(weatherRepositoryProvider).refresh();
+        }
         _lastLive = s.state;
         _syncBrightness();
       }
@@ -87,6 +95,8 @@ class _RingRootState extends ConsumerState<RingRoot> {
       body = const ConfirmView();
     } else if (session.state == RingState.snoozed) {
       body = SnoozedView(session: session);
+    } else if (session.state == RingState.greeting) {
+      body = const GreetingView();
     } else {
       body = Center(
         child: Text(

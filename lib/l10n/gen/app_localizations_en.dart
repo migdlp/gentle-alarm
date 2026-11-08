@@ -285,4 +285,76 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stopPreviewA11y => 'Stop';
+
+  @override
+  String get greetingTitle => 'Good morning';
+
+  @override
+  String weatherLine(String temp, String condition, String city) {
+    return '$temp °C · $condition in $city';
+  }
+
+  @override
+  String get startDay => 'Start the day';
+
+  @override
+  String get weatherClear => 'Clear';
+
+  @override
+  String get weatherPartlyCloudy => 'Partly cloudy';
+
+  @override
+  String get weatherFog => 'Fog';
+
+  @override
+  String get weatherDrizzle => 'Drizzle';
+
+  @override
+  String get weatherRain => 'Rain';
+
+  @override
+  String get weatherSnow => 'Snow';
+
+  @override
+  String get weatherStorm => 'Storm';
+
+  @override
+  String get greetingPhrase1 => 'No need to rush today. One step at a time.';
+
+  @override
+  String get greetingPhrase2 =>
+      'Have a glass of water: your body will thank you.';
+
+  @override
+  String get greetingPhrase3 => 'Take three deep breaths before you get up.';
+
+  @override
+  String get greetingPhrase4 =>
+      'What goes well today counts. The rest does too.';
+
+  @override
+  String get greetingPhrase5 => 'Open the window and let the day in.';
+
+  @override
+  String get greetingPhrase6 => 'Stretch like nobody\'s watching.';
+
+  @override
+  String get greetingPhrase7 => 'You\'ve rested. Now, on to a good day.';
+
+  @override
+  String get greetingPhrase8 =>
+      'Pick one small thing to look forward to today.';
+
+  @override
+  String get greetingPhrase9 => 'The light is here. So are you.';
+
+  @override
+  String get greetingPhrase10 => 'Slowly still gets you there.';
+
+  @override
+  String get greetingPhrase11 => 'Smile for a second: it\'s free and it works.';
+
+  @override
+  String get greetingPhrase12 =>
+      'Something new starts today, even if it\'s small.';
 }

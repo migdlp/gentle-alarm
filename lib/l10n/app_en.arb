@@ -186,5 +186,40 @@
       }
     }
   },
-  "stopPreviewA11y": "Stop"
+  "stopPreviewA11y": "Stop",
+  "greetingTitle": "Good morning",
+  "weatherLine": "{temp} °C · {condition} in {city}",
+  "@weatherLine": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      },
+      "condition": {
+        "type": "String"
+      },
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "startDay": "Start the day",
+  "weatherClear": "Clear",
+  "weatherPartlyCloudy": "Partly cloudy",
+  "weatherFog": "Fog",
+  "weatherDrizzle": "Drizzle",
+  "weatherRain": "Rain",
+  "weatherSnow": "Snow",
+  "weatherStorm": "Storm",
+  "greetingPhrase1": "No need to rush today. One step at a time.",
+  "greetingPhrase2": "Have a glass of water: your body will thank you.",
+  "greetingPhrase3": "Take three deep breaths before you get up.",
+  "greetingPhrase4": "What goes well today counts. The rest does too.",
+  "greetingPhrase5": "Open the window and let the day in.",
+  "greetingPhrase6": "Stretch like nobody's watching.",
+  "greetingPhrase7": "You've rested. Now, on to a good day.",
+  "greetingPhrase8": "Pick one small thing to look forward to today.",
+  "greetingPhrase9": "The light is here. So are you.",
+  "greetingPhrase10": "Slowly still gets you there.",
+  "greetingPhrase11": "Smile for a second: it's free and it works.",
+  "greetingPhrase12": "Something new starts today, even if it's small."
 }
