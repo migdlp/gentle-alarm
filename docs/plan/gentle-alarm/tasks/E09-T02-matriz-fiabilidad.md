@@ -2,7 +2,7 @@
 id: E09-T02
 title: Matriz manual de fiabilidad en dispositivos reales
 epic: E09
-status: todo
+status: blocked
 depends_on: [E07-T04, E08-T01]
 requirements: [RNF-01, RNF-03, RF-84, RF-85, RF-41, RF-26]
 size: M
@@ -50,3 +50,7 @@ adb shell dumpsys batterystats --charged com.migdlp.gentlealarm | grep -i wake
 
 ## Si te bloqueas
 - Si un fabricante mata la app pese a la guía, anótalo como riesgo R-01 materializado y sigue con el resto de escenarios.
+
+## Bloqueo
+- Requiere 3 dispositivos reales (Pixel/emulador API 35+, Samsung, Xiaomi) y horas de prueba manual; este entorno no tiene ni emulador. Se deja la plantilla `docs/qa/matriz-fiabilidad.md` con las 21 celdas marcadas «pendiente (sin dispositivo)».
+- Opciones: (a) el propietario ejecuta los escenarios y rellena la tabla; (b) se acepta publicar en prueba interna con la matriz pendiente.
