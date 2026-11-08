@@ -18,6 +18,20 @@ class AlarmDefaults {
   final bool vibrate;
   final String soundId;
 
+  AlarmDefaults copyWith({
+    int? sunriseMinutes,
+    int? rampMinutes,
+    int? maxVolumePercent,
+    bool? vibrate,
+    String? soundId,
+  }) => AlarmDefaults(
+    sunriseMinutes: sunriseMinutes ?? this.sunriseMinutes,
+    rampMinutes: rampMinutes ?? this.rampMinutes,
+    maxVolumePercent: maxVolumePercent ?? this.maxVolumePercent,
+    vibrate: vibrate ?? this.vibrate,
+    soundId: soundId ?? this.soundId,
+  );
+
   @override
   bool operator ==(Object other) =>
       other is AlarmDefaults &&

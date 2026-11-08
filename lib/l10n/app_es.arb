@@ -84,5 +84,32 @@
   "weekendsOnly": "Fines de semana",
   "onceOnly": "Una vez",
   "defaultLabel": "Alarma",
-  "settingsTooltip": "Ajustes"
+  "settingsTooltip": "Ajustes",
+  "settingsTitle": "Ajustes",
+  "forNewAlarms": "Para alarmas nuevas",
+  "weatherSection": "Tiempo",
+  "aboutSection": "Acerca de",
+  "aboutVersion": "Versión {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherAttribution": "Datos del tiempo: Open-Meteo.com",
+  "sound": "Sonido",
+  "sunrise": "Amanecer antes de sonar",
+  "noSunrise": "Sin amanecer",
+  "minutesShort": "{m} min",
+  "@minutesShort": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "ramp": "Subida del volumen",
+  "maxVolume": "Volumen máximo",
+  "vibration": "Vibración suave"
 }

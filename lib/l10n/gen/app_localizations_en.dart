@@ -102,4 +102,47 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsTooltip => 'Settings';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get forNewAlarms => 'For new alarms';
+
+  @override
+  String get weatherSection => 'Weather';
+
+  @override
+  String get aboutSection => 'About';
+
+  @override
+  String aboutVersion(String version) {
+    return 'Version $version';
+  }
+
+  @override
+  String get weatherAttribution => 'Weather data: Open-Meteo.com';
+
+  @override
+  String get sound => 'Sound';
+
+  @override
+  String get sunrise => 'Sunrise before ringing';
+
+  @override
+  String get noSunrise => 'No sunrise';
+
+  @override
+  String minutesShort(int m) {
+    return '$m min';
+  }
+
+  @override
+  String get ramp => 'Volume fade-in';
+
+  @override
+  String get maxVolume => 'Maximum volume';
+
+  @override
+  String get vibration => 'Gentle vibration';
 }

@@ -2,7 +2,7 @@
 id: E03-T05
 title: Pantalla de ajustes con valores por defecto y Acerca de
 epic: E03
-status: todo
+status: done
 depends_on: [E03-T01, E05-T01]
 requirements: [RF-08]
 size: S
@@ -50,3 +50,6 @@ flutter gen-l10n && flutter analyze && flutter test
 
 ## Si te bloqueas
 - No añadas `package_info_plus`: usa `--dart-define` como se indica.
+
+## Notas de implementación
+- SettingsScreen con valores por defecto, Acerca de (versión por --dart-define APP_VERSION) y atribución. Se crea alarm_options.dart (SunriseSelector, RampSelector, VolumeSlider, VibrationSwitch) para reutilizarlo en el editor (E03-T03) y AlarmDefaults.copyWith. Las claves ARB sound/sunrise/ramp/etc. se adelantan desde E03-T03. Pendiente manual: crear una alarma tras cambiar ajustes (lo cubrirá E03-T03).

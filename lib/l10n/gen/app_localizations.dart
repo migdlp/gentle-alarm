@@ -259,6 +259,84 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Ajustes'**
   String get settingsTooltip;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Ajustes'**
+  String get settingsTitle;
+
+  /// No description provided for @forNewAlarms.
+  ///
+  /// In es, this message translates to:
+  /// **'Para alarmas nuevas'**
+  String get forNewAlarms;
+
+  /// No description provided for @weatherSection.
+  ///
+  /// In es, this message translates to:
+  /// **'Tiempo'**
+  String get weatherSection;
+
+  /// No description provided for @aboutSection.
+  ///
+  /// In es, this message translates to:
+  /// **'Acerca de'**
+  String get aboutSection;
+
+  /// No description provided for @aboutVersion.
+  ///
+  /// In es, this message translates to:
+  /// **'Versión {version}'**
+  String aboutVersion(String version);
+
+  /// No description provided for @weatherAttribution.
+  ///
+  /// In es, this message translates to:
+  /// **'Datos del tiempo: Open-Meteo.com'**
+  String get weatherAttribution;
+
+  /// No description provided for @sound.
+  ///
+  /// In es, this message translates to:
+  /// **'Sonido'**
+  String get sound;
+
+  /// No description provided for @sunrise.
+  ///
+  /// In es, this message translates to:
+  /// **'Amanecer antes de sonar'**
+  String get sunrise;
+
+  /// No description provided for @noSunrise.
+  ///
+  /// In es, this message translates to:
+  /// **'Sin amanecer'**
+  String get noSunrise;
+
+  /// No description provided for @minutesShort.
+  ///
+  /// In es, this message translates to:
+  /// **'{m} min'**
+  String minutesShort(int m);
+
+  /// No description provided for @ramp.
+  ///
+  /// In es, this message translates to:
+  /// **'Subida del volumen'**
+  String get ramp;
+
+  /// No description provided for @maxVolume.
+  ///
+  /// In es, this message translates to:
+  /// **'Volumen máximo'**
+  String get maxVolume;
+
+  /// No description provided for @vibration.
+  ///
+  /// In es, this message translates to:
+  /// **'Vibración suave'**
+  String get vibration;
 }
 
 class _AppLocalizationsDelegate

@@ -77,5 +77,32 @@
   "weekendsOnly": "Weekends",
   "onceOnly": "Once",
   "defaultLabel": "Alarm",
-  "settingsTooltip": "Settings"
+  "settingsTooltip": "Settings",
+  "settingsTitle": "Settings",
+  "forNewAlarms": "For new alarms",
+  "weatherSection": "Weather",
+  "aboutSection": "About",
+  "aboutVersion": "Version {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherAttribution": "Weather data: Open-Meteo.com",
+  "sound": "Sound",
+  "sunrise": "Sunrise before ringing",
+  "noSunrise": "No sunrise",
+  "minutesShort": "{m} min",
+  "@minutesShort": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "ramp": "Volume fade-in",
+  "maxVolume": "Maximum volume",
+  "vibration": "Gentle vibration"
 }
