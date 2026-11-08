@@ -2,7 +2,7 @@
 id: E06-T01
 title: Cliente Open-Meteo (geocodificación y tiempo actual) con caché
 epic: E06
-status: todo
+status: done
 depends_on: [E03-T01]
 requirements: [RF-70, RF-71]
 size: M
@@ -32,8 +32,8 @@ size: M
 4. GREEN.
 
 ## Criterios de aceptación
-- [ ] Las 7 pruebas pasan.
-- [ ] Ninguna petición sale a otros hosts (revisión de código).
+- [x] Las 7 pruebas pasan.
+- [x] Ninguna petición sale a otros hosts (revisión de código).
 
 ## Verificación
 ```bash
@@ -45,3 +45,6 @@ flutter analyze && flutter test test/features/greeting
 
 ## Si te bloqueas
 - No añadas `dio` ni `geolocator`: usa `http` (ADR-09).
+
+## Notas de implementación
+- City/WeatherNow, OpenMeteoClient (timeout inyectable, solo api.open-meteo.com y geocoding-api.open-meteo.com), WeatherRepository con caché de 3 h y providers. 9 tests OK (las pruebas de timeout usan 50 ms inyectados en vez de 5 s reales).
