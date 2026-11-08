@@ -109,6 +109,48 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Despierta con luz, no con sustos'**
   String get appTagline;
+
+  /// No description provided for @soundBirdsDawn.
+  ///
+  /// In es, this message translates to:
+  /// **'Pájaros al alba'**
+  String get soundBirdsDawn;
+
+  /// No description provided for @soundSoftWaves.
+  ///
+  /// In es, this message translates to:
+  /// **'Olas suaves'**
+  String get soundSoftWaves;
+
+  /// No description provided for @soundLightRain.
+  ///
+  /// In es, this message translates to:
+  /// **'Lluvia ligera'**
+  String get soundLightRain;
+
+  /// No description provided for @soundChimes.
+  ///
+  /// In es, this message translates to:
+  /// **'Campanillas'**
+  String get soundChimes;
+
+  /// No description provided for @soundCalmPiano.
+  ///
+  /// In es, this message translates to:
+  /// **'Piano tranquilo'**
+  String get soundCalmPiano;
+
+  /// No description provided for @soundSingingBowls.
+  ///
+  /// In es, this message translates to:
+  /// **'Cuencos'**
+  String get soundSingingBowls;
+
+  /// No description provided for @soundCustom.
+  ///
+  /// In es, this message translates to:
+  /// **'De mi móvil: {name}'**
+  String soundCustom(String name);
 }
 
 class _AppLocalizationsDelegate

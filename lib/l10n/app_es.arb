@@ -1,5 +1,19 @@
 {
   "@@locale": "es",
   "appTitle": "Despertar suave",
-  "appTagline": "Despierta con luz, no con sustos"
+  "appTagline": "Despierta con luz, no con sustos",
+  "soundBirdsDawn": "Pájaros al alba",
+  "soundSoftWaves": "Olas suaves",
+  "soundLightRain": "Lluvia ligera",
+  "soundChimes": "Campanillas",
+  "soundCalmPiano": "Piano tranquilo",
+  "soundSingingBowls": "Cuencos",
+  "soundCustom": "De mi móvil: {name}",
+  "@soundCustom": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -2,7 +2,7 @@
 id: E05-T01
 title: Seis sonidos CC0 incluidos y catálogo de sonidos
 epic: E05
-status: todo
+status: done
 depends_on: [E01-T03]
 requirements: [RF-60]
 size: M
@@ -55,3 +55,6 @@ ls -la android/app/src/main/res/raw/
 
 ## Si te bloqueas
 - Si un sonido no tiene un candidato CC0 que cumpla los requisitos, para y pide al propietario un archivo; no uses CC-BY ni otras licencias.
+
+## Notas de implementación
+- Catálogo Dart + claves ARB + 6 OGG (≤1,2 MB, 60 s) + keep.xml. Desviación importante (SUPUESTO-2): Freesound exige cuenta para descargar, así que los sonidos son de síntesis propia (assets/sounds/generate_sounds.py, CC0). Pendiente: escucha y aprobación del propietario; puede sustituir los .ogg por grabaciones reales.

@@ -13,4 +13,27 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get appTagline => 'Despierta con luz, no con sustos';
+
+  @override
+  String get soundBirdsDawn => 'Pájaros al alba';
+
+  @override
+  String get soundSoftWaves => 'Olas suaves';
+
+  @override
+  String get soundLightRain => 'Lluvia ligera';
+
+  @override
+  String get soundChimes => 'Campanillas';
+
+  @override
+  String get soundCalmPiano => 'Piano tranquilo';
+
+  @override
+  String get soundSingingBowls => 'Cuencos';
+
+  @override
+  String soundCustom(String name) {
+    return 'De mi móvil: $name';
+  }
 }

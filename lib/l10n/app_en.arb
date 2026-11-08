@@ -1,5 +1,12 @@
 {
   "@@locale": "en",
   "appTitle": "Gentle Alarm",
-  "appTagline": "Wake up with light, not with a fright"
+  "appTagline": "Wake up with light, not with a fright",
+  "soundBirdsDawn": "Dawn birds",
+  "soundSoftWaves": "Soft waves",
+  "soundLightRain": "Light rain",
+  "soundChimes": "Chimes",
+  "soundCalmPiano": "Calm piano",
+  "soundSingingBowls": "Singing bowls",
+  "soundCustom": "From my phone: {name}"
 }
