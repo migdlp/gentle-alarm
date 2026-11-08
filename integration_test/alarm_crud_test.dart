@@ -32,7 +32,7 @@ void main() {
     expect(find.text('Aún no tienes alarmas'), findsOneWidget);
     await tester.tap(find.text('Crear alarma'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('7:30'));
+    await tester.tap(find.textContaining('7:30'));
     await tester.pumpAndSettle();
     await tester.tap(find.byIcon(Icons.keyboard_outlined));
     await tester.pumpAndSettle();
@@ -41,7 +41,8 @@ void main() {
     await tester.enterText(fields.at(1), '45');
     final am = find.text('a. m.');
     if (am.evaluate().isNotEmpty) await tester.tap(am);
-    await tester.tap(find.text('Aceptar'));
+    // El botón de aceptar es el último del diálogo (su texto depende del idioma).
+    await tester.tap(find.byType(TextButton).last);
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
       find.text('Guardar'),
