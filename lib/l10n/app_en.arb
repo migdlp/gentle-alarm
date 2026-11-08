@@ -175,5 +175,16 @@
       }
     }
   },
-  "iGetUp": "I'm getting up"
+  "iGetUp": "I'm getting up",
+  "soundPickerTitle": "Choose a sound",
+  "pickFromPhone": "Choose from my phone",
+  "playPreviewA11y": "Play {name}",
+  "@playPreviewA11y": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "stopPreviewA11y": "Stop"
 }

@@ -182,5 +182,16 @@
       }
     }
   },
-  "iGetUp": "Ya me levanto"
+  "iGetUp": "Ya me levanto",
+  "soundPickerTitle": "Elige un sonido",
+  "pickFromPhone": "Elegir de mi móvil",
+  "playPreviewA11y": "Escuchar {name}",
+  "@playPreviewA11y": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "stopPreviewA11y": "Parar"
 }

@@ -8,6 +8,7 @@ import 'package:gentle_alarm/src/features/alarms/state/alarms_providers.dart';
 import 'package:gentle_alarm/src/features/alarms/ui/widgets/alarm_options.dart';
 import 'package:gentle_alarm/src/features/settings/state/settings_providers.dart';
 import 'package:gentle_alarm/src/features/sounds/domain/sound_catalog.dart';
+import 'package:gentle_alarm/src/features/sounds/ui/sound_picker_screen.dart';
 import 'package:intl/intl.dart';
 
 class AlarmEditorScreen extends ConsumerStatefulWidget {
@@ -55,6 +56,26 @@ class _AlarmEditorScreenState extends ConsumerState<AlarmEditorScreen> {
       initialTime: TimeOfDay(hour: _alarm.hour, minute: _alarm.minute),
     );
     if (t != null) _update(_alarm.copyWith(hour: t.hour, minute: t.minute));
+  }
+
+  Future<void> _pickSound() async {
+    final choice = await Navigator.of(context).push<SoundChoice>(
+      MaterialPageRoute(
+        builder: (_) => SoundPickerScreen(
+          selectedId: _alarm.soundId,
+          customUri: _alarm.customSoundUri,
+          customName: _alarm.customSoundName,
+        ),
+      ),
+    );
+    if (choice == null) return;
+    _update(
+      _alarm.copyWith(
+        soundId: choice.id,
+        customSoundUri: choice.uri,
+        customSoundName: choice.name,
+      ),
+    );
   }
 
   void _toggleDay(int day) {
@@ -174,6 +195,8 @@ class _AlarmEditorScreenState extends ConsumerState<AlarmEditorScreen> {
             ),
             ListTile(
               contentPadding: EdgeInsets.zero,
+              onTap: _pickSound,
+              trailing: const Icon(Icons.chevron_right),
               title: Text(l10n.sound),
               subtitle: Text(
                 SoundCatalog.label(

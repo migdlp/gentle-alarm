@@ -553,6 +553,30 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Ya me levanto'**
   String get iGetUp;
+
+  /// No description provided for @soundPickerTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Elige un sonido'**
+  String get soundPickerTitle;
+
+  /// No description provided for @pickFromPhone.
+  ///
+  /// In es, this message translates to:
+  /// **'Elegir de mi móvil'**
+  String get pickFromPhone;
+
+  /// No description provided for @playPreviewA11y.
+  ///
+  /// In es, this message translates to:
+  /// **'Escuchar {name}'**
+  String playPreviewA11y(String name);
+
+  /// No description provided for @stopPreviewA11y.
+  ///
+  /// In es, this message translates to:
+  /// **'Parar'**
+  String get stopPreviewA11y;
 }
 
 class _AppLocalizationsDelegate

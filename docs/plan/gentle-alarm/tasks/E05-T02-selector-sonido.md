@@ -2,7 +2,7 @@
 id: E05-T02
 title: Selector de sonido con escucha previa y archivo propio del móvil
 epic: E05
-status: todo
+status: done
 depends_on: [E05-T01, E03-T03, E03-T05, E04-T02]
 requirements: [RF-61, RF-62]
 size: M
@@ -52,3 +52,6 @@ flutter build apk --debug
 
 ## Si te bloqueas
 - Si `takePersistableUriPermission` lanza `SecurityException` con algún proveedor (p. ej. Google Drive sin copia local), devuelve `null` desde `pickAudio` y muestra el snackbar `errorGeneric`.
+
+## Notas de implementación
+- SystemChannel.kt (pickAudio con ACTION_OPEN_DOCUMENT + permiso persistente, previewSound USAGE_MEDIA con fundido de 1 s y parada a 10 s, canReadUri), SoundPickerScreen/SoundChoice y filas «Sonido» en editor y ajustes (en ajustes sin archivo propio, porque los defaults solo admiten sonidos incluidos). Como FlutterActivity no es ComponentActivity se usa startActivityForResult/onActivityResult en vez de registerForActivityResult. 4 tests OK; APK compila. PENDIENTE manual: paso 4 (canción propia, reinicio y borrado).

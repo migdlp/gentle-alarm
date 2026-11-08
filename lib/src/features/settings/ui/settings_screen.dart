@@ -7,6 +7,7 @@ import 'package:gentle_alarm/src/features/greeting/state/weather_providers.dart'
 import 'package:gentle_alarm/src/features/greeting/ui/city_search_screen.dart';
 import 'package:gentle_alarm/src/features/settings/state/settings_providers.dart';
 import 'package:gentle_alarm/src/features/sounds/domain/sound_catalog.dart';
+import 'package:gentle_alarm/src/features/sounds/ui/sound_picker_screen.dart';
 
 const _appVersion = String.fromEnvironment(
   'APP_VERSION',
@@ -29,8 +30,22 @@ class SettingsScreen extends ConsumerWidget {
           _Header(l10n.forNewAlarms),
           ListTile(
             contentPadding: EdgeInsets.zero,
+            trailing: const Icon(Icons.chevron_right),
             title: Text(l10n.sound),
             subtitle: Text(SoundCatalog.label(l10n, d.soundId, null)),
+            onTap: () async {
+              final choice = await Navigator.of(context).push<SoundChoice>(
+                MaterialPageRoute(
+                  builder: (_) => SoundPickerScreen(
+                    selectedId: d.soundId,
+                    allowCustom: false,
+                  ),
+                ),
+              );
+              if (choice != null) {
+                notifier.update(d.copyWith(soundId: choice.id));
+              }
+            },
           ),
           SunriseSelector(
             value: d.sunriseMinutes,

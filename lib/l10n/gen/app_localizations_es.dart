@@ -270,4 +270,18 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get iGetUp => 'Ya me levanto';
+
+  @override
+  String get soundPickerTitle => 'Elige un sonido';
+
+  @override
+  String get pickFromPhone => 'Elegir de mi móvil';
+
+  @override
+  String playPreviewA11y(String name) {
+    return 'Escuchar $name';
+  }
+
+  @override
+  String get stopPreviewA11y => 'Parar';
 }
