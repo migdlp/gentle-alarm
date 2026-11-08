@@ -36,13 +36,20 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byIcon(Icons.keyboard_outlined));
     await tester.pumpAndSettle();
-    final fields = find.byType(TextField);
+    // Solo los campos del diálogo: el editor de debajo también tiene un TextField (la etiqueta).
+    final dialog = find.byType(Dialog);
+    final fields = find.descendant(
+      of: dialog,
+      matching: find.byType(TextField),
+    );
     await tester.enterText(fields.at(0), '6');
     await tester.enterText(fields.at(1), '45');
     final am = find.text('a. m.');
     if (am.evaluate().isNotEmpty) await tester.tap(am);
     // El botón de aceptar es el último del diálogo (su texto depende del idioma).
-    await tester.tap(find.byType(TextButton).last);
+    await tester.tap(
+      find.descendant(of: dialog, matching: find.byType(TextButton)).last,
+    );
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
       find.text('Guardar'),
