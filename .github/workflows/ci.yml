@@ -31,9 +31,10 @@ jobs:
         continue-on-error: false
       - run: flutter analyze
       - run: flutter test
+      # gradlew no está versionado: flutter lo genera al compilar, así que el APK va primero.
+      - run: flutter build apk --debug
       - run: ./gradlew testDebugUnitTest
         working-directory: android
-      - run: flutter build apk --debug
 
   android-emulator:
     needs: flutter
