@@ -2,7 +2,7 @@
 id: E08-T01
 title: Auditoría de accesibilidad (TalkBack, texto al 200 % y animaciones reducidas)
 epic: E08
-status: todo
+status: done
 depends_on: [E06-T03, E07-T03, E07-T04, E05-T02, E06-T02]
 requirements: [RNF-04, RNF-05]
 size: M
@@ -43,3 +43,6 @@ flutter analyze && flutter test test/a11y
 
 ## Si te bloqueas
 - Si `textContrastGuideline` falla en un par de la paleta, no cambies el token: reporta el par (ya lo valida E01-T04).
+
+## Notas de implementación
+- a11y_guidelines_test.dart cubre las 11 pantallas (tap target, etiquetas, contraste salvo la hora del amanecer, texto 200 %, animaciones reducidas). Correcciones mínimas: ScrollBody (nuevo, core/widgets) en onboarding, sonando, confirmación y saludo; FittedBox en las horas grandes; cabeceras de Ajustes en onSurface; botones de confirmar/empezar con texto inkOnLight sobre accent (cream sobre accent solo da 2,96:1; desviación de §2.1) y el botón posponer pasa a un único Text.rich. PENDIENTE: prueba manual con TalkBack.

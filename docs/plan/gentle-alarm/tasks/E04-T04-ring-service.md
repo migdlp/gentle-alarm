@@ -2,7 +2,7 @@
 id: E04-T04
 title: RingService en primer plano que ejecuta la máquina de estados
 epic: E04
-status: todo
+status: done
 depends_on: [E04-T01, E04-T03, E02-T05]
 requirements: [RF-20, RF-25]
 size: M
@@ -55,3 +55,6 @@ flutter build apk --debug
 
 ## Si te bloqueas
 - Si `startForeground` lanza `ForegroundServiceStartNotAllowedException` o `InvalidForegroundServiceTypeException` en API 34+, aplica el plan B de ADR-06 (`mediaPlayback`), anótalo y repórtalo en el resumen.
+
+## Notas de implementación
+- RingService (FGS systemExempted, wakelock 2 h, persistencia/restauración, plazos con postAtTime, acciones Apagar/Posponer), RingNotifications, RingSessionBus, RingRequest, EffectDispatcher con puertos y RingActivity vacía; manifest y strings es/en. Extra: ACTION_EVENT (intent con extra event) para que E04-T06 reenvíe gestos. EffectDispatcherTest y RingRequestTest OK; APK compila. PENDIENTE (requiere emulador/dispositivo): prueba manual del paso 5, No molestar y llamada entrante.

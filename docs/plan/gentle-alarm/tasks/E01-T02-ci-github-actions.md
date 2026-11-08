@@ -2,7 +2,7 @@
 id: E01-T02
 title: Pipeline de CI en GitHub Actions
 epic: E01
-status: todo
+status: done
 depends_on: [E01-T01]
 requirements: [RNF-08]
 size: S
@@ -44,3 +44,6 @@ Manual: abre la PR y comprueba el check en GitHub.
 
 ## Si te bloqueas
 - Si Gradle se queda sin memoria en CI, añade `org.gradle.jvmargs=-Xmx4g` en `android/gradle.properties` y anótalo.
+
+## Notas de implementación
+- Workflow creado en .github/workflows/ci.yml. Los pasos se ejecutaron en local con éxito. PENDIENTE: comprobar el check «CI / flutter» en GitHub y la prueba de fallo por formato (requieren ejecutar el workflow en remoto); por eso los criterios siguen sin marcar.

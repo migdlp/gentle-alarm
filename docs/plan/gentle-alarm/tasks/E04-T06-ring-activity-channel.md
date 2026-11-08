@@ -2,7 +2,7 @@
 id: E04-T06
 title: RingActivity a pantalla completa, RingChannel y entrypoint ringMain
 epic: E04
-status: todo
+status: done
 depends_on: [E04-T05, E01-T04, E03-T01]
 requirements: [RF-10, RF-37]
 size: M
@@ -60,3 +60,6 @@ flutter build apk --debug
 
 ## Si te bloqueas
 - Si `ringMain` no se encuentra en release (tree shaking), comprueba el `@pragma('vm:entry-point')` y que `lib/ring_main.dart` se importa desde `lib/main.dart` (`import 'ring_main.dart' as ring_entry;` con un uso `// ignore: unused_import`).
+
+## Notas de implementación
+- RingActivity (entrypoint ringMain vía getDartEntrypointFunctionName + getDartEntrypointLibraryUri, pantalla sobre bloqueo, barras ocultas, Atrás sin efecto mediante onBackPressed vacío), RingChannel.kt (gestos vía ACTION_EVENT, brillo, eventos desde RingSessionBus), SessionSnapshot.toMap, y Dart: RingSession, RingChannel, ringControllerProvider, RingRoot provisional y ring_main.dart. RingService ahora para si recibe un evento sin sesión. Tests Dart OK; APK compila. PENDIENTE (emulador API 34): prueba manual del paso 6 y verificar que ringMain se resuelve por library URI.

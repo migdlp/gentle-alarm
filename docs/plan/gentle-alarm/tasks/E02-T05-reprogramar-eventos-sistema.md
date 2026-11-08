@@ -2,7 +2,7 @@
 id: E02-T05
 title: Reprogramar tras reinicio, actualización o cambio de hora y gestionar perdidas
 epic: E02
-status: todo
+status: done
 depends_on: [E02-T04]
 requirements: [RF-41, RF-42]
 size: M
@@ -44,9 +44,9 @@ Tras un reinicio (incluso sin desbloquear), una actualización de la app o un ca
 | Alarma desactivada con `scheduledRingAtEpochMs` pasado | ignorada |
 
 ## Criterios de aceptación
-- [ ] Los 6 casos tienen un test que pasa.
-- [ ] El manifest registra `SystemEventsReceiver` con las 5 acciones y `directBootAware="true"`.
-- [ ] La prueba manual de reinicio con alarmas reales se hace en E09-T02 (escenario 3); aquí no se exige.
+- [x] Los 6 casos tienen un test que pasa.
+- [x] El manifest registra `SystemEventsReceiver` con las 5 acciones y `directBootAware="true"`.
+- [x] La prueba manual de reinicio con alarmas reales se hace en E09-T02 (escenario 3); aquí no se exige.
 
 ## Verificación
 ```bash
@@ -59,3 +59,6 @@ flutter build apk --debug
 
 ## Si te bloqueas
 - Si `LOCKED_BOOT_COMPLETED` no llega en el emulador, prueba con `adb shell am broadcast -a android.intent.action.LOCKED_BOOT_COMPLETED -p com.migdlp.gentlealarm` y anótalo.
+
+## Notas de implementación
+- BootRecovery (6 tests OK), MissedNotifier, SystemEventsReceiver (5 acciones, directBootAware) y strings es/en. APK compila. Pendiente: prueba manual de reinicio en E09-T02.

@@ -1,0 +1,259 @@
+{
+  "@@locale": "es",
+  "appTitle": "Despertar suave",
+  "appTagline": "Despierta con luz, no con sustos",
+  "soundBirdsDawn": "Pájaros al alba",
+  "soundSoftWaves": "Olas suaves",
+  "soundLightRain": "Lluvia ligera",
+  "soundChimes": "Campanillas",
+  "soundCalmPiano": "Piano tranquilo",
+  "soundSingingBowls": "Cuencos",
+  "soundCustom": "De mi móvil: {name}",
+  "@soundCustom": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "alarmsTitle": "Alarmas",
+  "emptyTitle": "Aún no tienes alarmas",
+  "emptyBody": "Crea la primera y despierta con calma.",
+  "createAlarm": "Crear alarma",
+  "nextAlarm": "Próxima: {when} ({inDuration})",
+  "@nextAlarm": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      },
+      "inDuration": {
+        "type": "String"
+      }
+    }
+  },
+  "noActiveAlarms": "Ninguna alarma activada",
+  "todayAt": "hoy a las {time}",
+  "@todayAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tomorrowAt": "mañana a las {time}",
+  "@tomorrowAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weekdayAt": "el {weekday} a las {time}",
+  "@weekdayAt": {
+    "placeholders": {
+      "weekday": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "inHoursMinutes": "en {h} h {m} min",
+  "@inHoursMinutes": {
+    "placeholders": {
+      "h": {
+        "type": "int"
+      },
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "inMinutes": "en {m} min",
+  "@inMinutes": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "inLessThanMinute": "en menos de 1 min",
+  "everyDay": "Todos los días",
+  "weekdaysOnly": "De lunes a viernes",
+  "weekendsOnly": "Fines de semana",
+  "onceOnly": "Una vez",
+  "defaultLabel": "Alarma",
+  "settingsTooltip": "Ajustes",
+  "settingsTitle": "Ajustes",
+  "forNewAlarms": "Para alarmas nuevas",
+  "weatherSection": "Tiempo",
+  "aboutSection": "Acerca de",
+  "aboutVersion": "Versión {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherAttribution": "Datos del tiempo: Open-Meteo.com",
+  "sound": "Sonido",
+  "sunrise": "Amanecer antes de sonar",
+  "noSunrise": "Sin amanecer",
+  "minutesShort": "{m} min",
+  "@minutesShort": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "ramp": "Subida del volumen",
+  "maxVolume": "Volumen máximo",
+  "vibration": "Vibración suave",
+  "weatherCity": "Ciudad para el tiempo",
+  "weatherCityNone": "Sin ciudad · el saludo no mostrará el tiempo",
+  "citySearchHint": "Busca tu ciudad",
+  "citySearchStart": "Escribe al menos 2 letras",
+  "citySearchEmpty": "No encontramos esa ciudad",
+  "cityRemove": "Quitar",
+  "newAlarm": "Nueva alarma",
+  "editAlarm": "Editar alarma",
+  "save": "Guardar",
+  "labelHint": "Etiqueta (opcional)",
+  "repeat": "Repetir",
+  "willRingIn": "Sonará {inDuration}",
+  "@willRingIn": {
+    "placeholders": {
+      "inDuration": {
+        "type": "String"
+      }
+    }
+  },
+  "errorScheduleFailed": "No hemos podido programar la alarma. Revisa el permiso de alarmas exactas.",
+  "errorGeneric": "Algo ha fallado. Inténtalo de nuevo.",
+  "discardTitle": "¿Descartar los cambios?",
+  "discard": "Descartar",
+  "keepEditing": "Seguir editando",
+  "alarmDeleted": "Alarma borrada",
+  "undo": "Deshacer",
+  "skipNext": "Saltar la próxima",
+  "unskipNext": "No saltar",
+  "skippingOn": "Se salta el {date}",
+  "@skippingOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteAlarm": "Borrar",
+  "sunriseRingsAt": "Suena a las {time}",
+  "@sunriseRingsAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "wakeEarly": "Ya estoy despierto/a",
+  "keepSleeping": "Seguir durmiendo",
+  "swipeUpToStop": "Desliza el sol hacia arriba",
+  "stopAlarmA11y": "Apagar alarma",
+  "snoozeButton": "Un ratito más",
+  "snoozesLeftText": "{count, plural, =1{Queda 1} other{Quedan {count}}}",
+  "@snoozesLeftText": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noMoreSnoozes": "Ya no quedan más ratitos",
+  "confirmQuestion": "¿Ya estás despierto/a?",
+  "confirmHint": "Si no respondes, volveré a sonar bajito.",
+  "confirmYes": "Sí, buenos días",
+  "snoozeBackIn": "Vuelvo en {time}",
+  "@snoozeBackIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "iGetUp": "Ya me levanto",
+  "soundPickerTitle": "Elige un sonido",
+  "pickFromPhone": "Elegir de mi móvil",
+  "playPreviewA11y": "Escuchar {name}",
+  "@playPreviewA11y": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "stopPreviewA11y": "Parar",
+  "greetingTitle": "Buenos días",
+  "weatherLine": "{temp} °C · {condition} en {city}",
+  "@weatherLine": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      },
+      "condition": {
+        "type": "String"
+      },
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "startDay": "Empezar el día",
+  "weatherClear": "Despejado",
+  "weatherPartlyCloudy": "Algo nublado",
+  "weatherFog": "Niebla",
+  "weatherDrizzle": "Llovizna",
+  "weatherRain": "Lluvia",
+  "weatherSnow": "Nieve",
+  "weatherStorm": "Tormenta",
+  "greetingPhrase1": "Hoy no hace falta correr. Un paso cada vez.",
+  "greetingPhrase2": "Bebe un vaso de agua: tu cuerpo te lo agradecerá.",
+  "greetingPhrase3": "Respira hondo tres veces antes de levantarte.",
+  "greetingPhrase4": "Lo que hoy salga bien, cuenta. Lo demás, también.",
+  "greetingPhrase5": "Abre la ventana y deja entrar el día.",
+  "greetingPhrase6": "Estírate como si nadie te viera.",
+  "greetingPhrase7": "Has descansado. Ahora, a por un buen día.",
+  "greetingPhrase8": "Elige una cosa pequeña que te haga ilusión hoy.",
+  "greetingPhrase9": "La luz ya está aquí. Tú también.",
+  "greetingPhrase10": "Despacio también se llega.",
+  "greetingPhrase11": "Sonríe un segundo: es gratis y funciona.",
+  "greetingPhrase12": "Hoy empieza algo nuevo, aunque sea pequeño.",
+  "onbWelcomeBody": "Te despertaremos poco a poco: primero la luz y luego un sonido suave.",
+  "onbStart": "Empezar",
+  "onbNotifTitle": "Avisos de alarma",
+  "onbNotifBody": "Las necesitamos para mostrar la alarma y poder apagarla desde la pantalla de bloqueo.",
+  "onbAllow": "Permitir",
+  "onbLater": "Ahora no",
+  "onbExactTitle": "Alarmas puntuales",
+  "onbExactBody": "Activa «Alarmas y recordatorios» para que suene justo a su hora.",
+  "onbFullTitle": "Amanecer en pantalla completa",
+  "onbFullBody": "Permite la pantalla completa para que el amanecer aparezca aunque el móvil esté bloqueado.",
+  "onbOpenSettings": "Abrir ajustes",
+  "onbBatteryTitle": "Que nada apague tu alarma",
+  "onbBatteryXiaomi": "En Ajustes → Batería, elige «Sin restricciones» y activa «Inicio automático».",
+  "onbBatteryHuawei": "En Ajustes → Batería → Inicio de aplicaciones, desactiva «Gestionar automáticamente» y deja las tres opciones activadas.",
+  "onbBatteryOppo": "En Ajustes → Batería, permite la actividad en segundo plano y el inicio automático.",
+  "onbBatteryVivo": "En Ajustes → Batería → Consumo en segundo plano, permite el consumo alto.",
+  "onbBatterySamsung": "En Ajustes → Batería → Límites de uso en segundo plano, añade la app a «Nunca en suspensión».",
+  "onbTipTitle": "Un consejo para esta noche",
+  "onbTipBody": "Deja el móvil boca arriba y cargando en la mesilla para ver el amanecer.",
+  "onbDone": "Listo",
+  "healthTitle": "Tu alarma podría no sonar",
+  "healthNotif": "Faltan los avisos de alarma.",
+  "healthExact": "Faltan las alarmas puntuales.",
+  "healthFull": "Falta la pantalla completa para el amanecer.",
+  "healthFix": "Arreglarlo",
+  "previewButton": "Probar despertar",
+  "previewBusy": "Ya hay una alarma sonando."
+}

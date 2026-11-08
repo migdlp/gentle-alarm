@@ -2,7 +2,7 @@
 id: E04-T08
 title: Vista de sonando con sol deslizable y «Un ratito más»
 epic: E04
-status: todo
+status: done
 depends_on: [E04-T07]
 requirements: [RF-30, RF-33]
 size: M
@@ -52,3 +52,6 @@ flutter gen-l10n && flutter analyze && flutter test test/features/ring
 
 ## Si te bloqueas
 - Usa `GestureDetector(onVerticalDragUpdate/End)`; no añadas paquetes de gestos.
+
+## Notas de implementación
+- RingingView + SwipeSun (arrastre vertical con umbral de 160 dp, retorno easeOutBack 300 ms, respiración 4 s que se desactiva con disableAnimations, acción semántica «Apagar alarma»), botón «Un ratito más» con contador y mensaje sin posposiciones. 5 tests OK. Pendiente manual: TalkBack.

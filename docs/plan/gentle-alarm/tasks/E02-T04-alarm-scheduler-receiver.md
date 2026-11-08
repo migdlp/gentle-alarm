@@ -2,7 +2,7 @@
 id: E02-T04
 title: AlarmScheduler con setAlarmClock y AlarmReceiver
 epic: E02
-status: todo
+status: done
 depends_on: [E02-T02, E02-T03]
 requirements: [RF-40]
 size: M
@@ -33,9 +33,9 @@ Al llamar a `AlarmScheduler.reschedule(spec)`, se programa (o cancela) en AlarmM
 6. GREEN.
 
 ## Criterios de aceptación
-- [ ] Los 4 tests pasan.
-- [ ] El manifest declara `USE_EXACT_ALARM`, `SCHEDULE_EXACT_ALARM` (maxSdk 32) y `AlarmReceiver` no exportado y `directBootAware`.
-- [ ] La app compila. La comprobación con `adb shell dumpsys alarm` se hace en E02-T06, cuando ya existe un canal desde el que crear alarmas.
+- [x] Los 4 tests pasan.
+- [x] El manifest declara `USE_EXACT_ALARM`, `SCHEDULE_EXACT_ALARM` (maxSdk 32) y `AlarmReceiver` no exportado y `directBootAware`.
+- [x] La app compila. La comprobación con `adb shell dumpsys alarm` se hace en E02-T06, cuando ya existe un canal desde el que crear alarmas.
 
 ## Verificación
 ```bash
@@ -48,3 +48,6 @@ flutter build apk --debug
 
 ## Si te bloqueas
 - No uses `setExactAndAllowWhileIdle`: ADR-05 fija `setAlarmClock`.
+
+## Notas de implementación
+- AlarmScheduler con AlarmClockPort (setAlarmClock, PendingIntent FLAG_IMMUTABLE|UPDATE_CURRENT con requestCode alarmId.hashCode()), AlarmReceiver y RingLauncher (stub con log). 4 tests OK; APK debug compila. Se retira synthetic-package de l10n.yaml (obsoleto en esta versión de Flutter). Pendiente manual: dumpsys alarm en E02-T06.

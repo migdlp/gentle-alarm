@@ -2,7 +2,7 @@
 id: E07-T02
 title: Onboarding de primer arranque con permisos, guía de batería y consejo
 epic: E07
-status: todo
+status: done
 depends_on: [E07-T01, E03-T02]
 requirements: [RF-50, RF-53]
 size: M
@@ -69,3 +69,6 @@ flutter gen-l10n && flutter analyze && flutter test test/features/onboarding
 
 ## Si te bloqueas
 - No pidas `REQUEST_IGNORE_BATTERY_OPTIMIZATIONS` (decisión en `02-architecture.md` §4).
+
+## Notas de implementación
+- OnboardingScreen + buildSteps/batteryBrandFor, ARB es/en completos, app.dart decide entre onboarding y lista; se avanza solo al volver de los ajustes si el permiso ya está concedido. Se confirma en test que los apóstrofos del inglés se conservan en gen-l10n. 6 tests OK. Pendiente manual: emulador limpio API 34.

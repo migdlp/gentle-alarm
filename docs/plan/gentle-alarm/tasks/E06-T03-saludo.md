@@ -2,7 +2,7 @@
 id: E06-T03
 title: Pantalla de saludo con hora, tiempo y frase amable
 epic: E06
-status: todo
+status: done
 depends_on: [E06-T01, E04-T09]
 requirements: [RF-36, RF-71, RF-72, RF-73]
 size: M
@@ -70,3 +70,6 @@ flutter gen-l10n && flutter analyze && flutter test test/features/greeting test/
 
 ## Si te bloqueas
 - Si el saludo aparece antes de que llegue el tiempo, no esperes: muestra lo que haya en la caché en ese momento (RF-72).
+
+## Notas de implementación
+- phrase_picker, weather_text (+greetingPhrase), GreetingView (hora, tiempo opcional, frase sin repetir la anterior guardada en greeting.lastIndex, «Empezar el día») y refresco del tiempo en RingRoot al primer sunrise/ringing. 5 pruebas pedidas + extras OK. Pendiente manual: tiempo real y modo avión.

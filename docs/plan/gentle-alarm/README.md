@@ -49,15 +49,15 @@ Despertador para Android hecho en Flutter que despierta con calma. La pantalla s
 ## Epics
 | ID | Título | Tareas | Estado |
 |---|---|---|---|
-| [E01](epics/E01-cimientos.md) | Cimientos del proyecto | 4 | todo |
-| [E02](epics/E02-motor-alarmas.md) | Motor nativo de alarmas | 7 | todo |
-| [E03](epics/E03-gestion-alarmas.md) | Gestión de alarmas en la interfaz | 5 | todo |
-| [E04](epics/E04-sesion-despertar.md) | Sesión de despertar | 9 | todo |
-| [E05](epics/E05-sonidos.md) | Sonidos | 2 | todo |
-| [E06](epics/E06-saludo-tiempo.md) | Saludo y tiempo | 3 | todo |
-| [E07](epics/E07-permisos-onboarding.md) | Permisos, primer uso y vista previa | 4 | todo |
-| [E08](epics/E08-accesibilidad-icono.md) | Accesibilidad e identidad visual | 2 | todo |
-| [E09](epics/E09-calidad-publicacion.md) | Calidad y publicación | 3 | todo |
+| [E01](epics/E01-cimientos.md) | Cimientos del proyecto | 4 | done |
+| [E02](epics/E02-motor-alarmas.md) | Motor nativo de alarmas | 7 | done |
+| [E03](epics/E03-gestion-alarmas.md) | Gestión de alarmas en la interfaz | 5 | done |
+| [E04](epics/E04-sesion-despertar.md) | Sesión de despertar | 9 | done |
+| [E05](epics/E05-sonidos.md) | Sonidos | 2 | done |
+| [E06](epics/E06-saludo-tiempo.md) | Saludo y tiempo | 3 | done |
+| [E07](epics/E07-permisos-onboarding.md) | Permisos, primer uso y vista previa | 4 | done |
+| [E08](epics/E08-accesibilidad-icono.md) | Accesibilidad e identidad visual | 2 | done |
+| [E09](epics/E09-calidad-publicacion.md) | Calidad y publicación | 3 | blocked (2 tareas) |
 
 ## Supuestos a revisar
 - SUPUESTO-1: nombre visible «Despertar suave» / «Gentle Alarm».

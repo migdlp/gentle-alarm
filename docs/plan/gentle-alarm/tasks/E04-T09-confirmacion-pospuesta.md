@@ -2,7 +2,7 @@
 id: E04-T09
 title: Vistas de confirmación «¿Ya estás despierto/a?» y de pospuesta con luz tenue
 epic: E04
-status: todo
+status: done
 depends_on: [E04-T08]
 requirements: [RF-31, RF-34, RF-35]
 size: S
@@ -49,3 +49,6 @@ flutter gen-l10n && flutter analyze && flutter test test/features/ring
 
 ## Si te bloqueas
 - No uses `DateTime.now()` directamente en las vistas: usa siempre `clockProvider`.
+
+## Notas de implementación
+- ConfirmView, SnoozedView (cuenta atrás mm:ss por clockProvider, que se mueve a core/time/clock.dart y se reexporta desde alarms_providers.dart) y AnimatedSwitcher de 600 ms en RingRoot (que ya usa clockProvider). 2 tests OK. Pendiente manual: ciclo posponer → luz tenue → vuelve a sonar.

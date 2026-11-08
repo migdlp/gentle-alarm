@@ -2,7 +2,7 @@
 id: E03-T02
 title: Pantalla de lista de alarmas con próxima alarma e interruptores
 epic: E03
-status: todo
+status: done
 depends_on: [E03-T01, E01-T04]
 requirements: [RF-03, RF-05, RF-09]
 size: M
@@ -66,3 +66,6 @@ flutter gen-l10n && flutter analyze && flutter test
 
 ## Si te bloqueas
 - Si `alwaysUse24HourFormat` no refleja el sistema en un test, pásalo con `MediaQuery` explícito en el test.
+
+## Notas de implementación
+- format.dart (formatInDuration/When/Days/Time), AlarmsNotifier, AlarmTile, AlarmListScreen con cabecera, estado vacío, refresco al volver a primer plano y claves ARB es/en. l10n_test se reescribe porque la app ya no muestra appTitle en el cuerpo. El es 24 h formatea '7:30' (sin cero). formatInDuration/When reciben AppLocalizations como primer parámetro. Pendiente manual: refresco tras una sesión real.

@@ -2,7 +2,7 @@
 id: E06-T02
 title: Búsqueda y elección de ciudad para el tiempo en Ajustes
 epic: E06
-status: todo
+status: done
 depends_on: [E06-T01, E03-T05]
 requirements: [RF-70]
 size: S
@@ -49,3 +49,6 @@ flutter gen-l10n && flutter analyze && flutter test test/features/greeting
 
 ## Si te bloqueas
 - Si la API no responde desde el emulador, comprueba la conexión del emulador; no cambies el host.
+
+## Notas de implementación
+- CitySearchScreen (debounce 400 ms, estados, quitar), cityProvider y fila de ciudad en Ajustes; 4 tests OK. Pendiente manual: buscar «Madrid» en dispositivo.

@@ -2,7 +2,7 @@
 id: E07-T04
 title: «Probar despertar», una vista previa de 60 s desde el editor
 epic: E07
-status: todo
+status: done
 depends_on: [E04-T09, E03-T03]
 requirements: [RF-52]
 size: S
@@ -51,3 +51,6 @@ flutter analyze && flutter test test/features/alarms
 
 ## Si te bloqueas
 - Si la vista previa necesita el permiso de pantalla completa y falta, la sesión sonará igual con la notificación: no lo bloquees.
+
+## Notas de implementación
+- startPreview en AlarmChannelHandler/AlarmChannel (SESSION_ACTIVE si hay sesión; RingRequest.preview con ringAt = ahora + 30 s, no se guarda nada), RingLauncher.startPreview, repositorio Dart y botón «Probar despertar» con aviso previewBusy. 3 tests Kotlin y 2 Dart nuevos OK; APK compila. PENDIENTE manual: probar con amanecer de 20 min en dispositivo.

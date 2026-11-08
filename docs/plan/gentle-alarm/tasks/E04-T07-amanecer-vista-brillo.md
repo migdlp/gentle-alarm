@@ -2,7 +2,7 @@
 id: E04-T07
 title: Vista de amanecer con gradiente, brillo progresivo y hoja de opciones
 epic: E04
-status: todo
+status: done
 depends_on: [E04-T06]
 requirements: [RF-11, RF-13, RF-14, RNF-02]
 size: M
@@ -64,3 +64,6 @@ flutter run --profile
 
 ## Si te bloqueas
 - Si `setBrightness` no tiene efecto, comprueba en Kotlin que se modifica `window.attributes` y se vuelve a asignar (`window.attributes = lp`) en el hilo principal.
+
+## Notas de implementación
+- sunriseFrame/sunriseProgress/targetBrightness (puros), SunriseView con AnimatedContainer 500 ms, hora al 10 % y hoja «Ya estoy despierto/a» con brillo 0,3 (brightnessOverrideProvider), y Timer de 500 ms en RingRoot que sincroniza el brillo. 9 tests nuevos OK. PENDIENTE: prueba de rendimiento en móvil real (RNF-02) y comprobación visual.

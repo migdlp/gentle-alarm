@@ -2,7 +2,7 @@
 id: E04-T01
 title: RingSessionMachine pura con escalada, posponer y confirmación
 epic: E04
-status: todo
+status: done
 depends_on: [E01-T01]
 requirements: [RF-23, RF-24, RF-31, RF-32, RF-33, RF-35]
 size: M
@@ -78,8 +78,8 @@ Reglas:
 | restore(snapshot()) | misma salida de nextDeadlineMs y snapshot |
 
 ## Criterios de aceptación
-- [ ] Los 16 casos tienen un test que pasa.
-- [ ] `RingSessionMachine.kt` no importa nada de `android.*`.
+- [x] Los 16 casos tienen un test que pasa.
+- [x] `RingSessionMachine.kt` no importa nada de `android.*`.
 
 ## Verificación
 ```bash
@@ -91,3 +91,6 @@ cd android && ./gradlew testDebugUnitTest --tests "*RingSessionMachineTest*"
 
 ## Si te bloqueas
 - Si una regla de esta tarea parece contradecir `02-architecture.md`, gana esta tarea; anótalo en «Notas de implementación».
+
+## Notas de implementación
+- RingTimings, SessionSnapshot y RingSessionMachine (sin android.*) con 19 tests JUnit que cubren los 16 casos. restore() reconstruye vibración/pausa desde el snapshot (la vibración puede repetirse tras una muerte del proceso; aceptable). Tests escritos junto a la implementación (sin ejecución RED separada). Usar `:app:testDebugUnitTest`.

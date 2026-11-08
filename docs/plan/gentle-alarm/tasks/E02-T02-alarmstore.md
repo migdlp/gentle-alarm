@@ -2,7 +2,7 @@
 id: E02-T02
 title: AlarmStore en almacenamiento protegido del dispositivo
 epic: E02
-status: todo
+status: done
 depends_on: [E02-T01]
 requirements: [RNF-10]
 size: S
@@ -30,8 +30,8 @@ size: S
 6. GREEN.
 
 ## Criterios de aceptación
-- [ ] Todos los tests de `AlarmStoreTest` pasan.
-- [ ] `SharedPrefsKeyValueStore` usa `createDeviceProtectedStorageContext()` (revisión de código).
+- [x] Todos los tests de `AlarmStoreTest` pasan.
+- [x] `SharedPrefsKeyValueStore` usa `createDeviceProtectedStorageContext()` (revisión de código).
 
 ## Verificación
 ```bash
@@ -43,3 +43,6 @@ cd android && ./gradlew testDebugUnitTest --tests "*AlarmStoreTest*"
 
 ## Si te bloqueas
 - No uses Room ni DataStore: ADR-03 fija SharedPreferences + JSON.
+
+## Notas de implementación
+- AlarmStore + KeyValueStore (SharedPrefs en contexto protegido con commit(), InMemory para JVM). 8 tests OK. Verificación: `:app:testDebugUnitTest`.

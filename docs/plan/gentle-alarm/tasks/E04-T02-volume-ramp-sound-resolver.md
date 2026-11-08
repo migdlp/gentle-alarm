@@ -2,7 +2,7 @@
 id: E04-T02
 title: Curva de volumen y resolución del sonido con respaldo
 epic: E04
-status: todo
+status: done
 depends_on: [E02-T01]
 requirements: [RF-21, RF-27]
 size: S
@@ -34,8 +34,8 @@ Dos utilidades puras: `VolumeRamp`, que calcula el volumen perceptual de la ramp
 3. GREEN.
 
 ## Criterios de aceptación
-- [ ] Los 7 tests pasan.
-- [ ] Ninguno de los dos archivos importa `android.*`.
+- [x] Los 7 tests pasan.
+- [x] Ninguno de los dos archivos importa `android.*`.
 
 ## Verificación
 ```bash
@@ -47,3 +47,6 @@ cd android && ./gradlew testDebugUnitTest --tests "*VolumeRampTest*" --tests "*S
 
 ## Si te bloqueas
 - Para comparar floats usa `assertEquals(expected, actual, 0.001f)`.
+
+## Notas de implementación
+- VolumeRamp y SoundResolver puros, 10 tests OK, sin android.*.

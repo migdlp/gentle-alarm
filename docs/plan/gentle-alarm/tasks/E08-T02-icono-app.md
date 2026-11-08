@@ -2,7 +2,7 @@
 id: E08-T02
 title: Icono adaptativo y monocromo de la app
 epic: E08
-status: todo
+status: done
 depends_on: [E01-T04]
 requirements: [RF-90]
 size: S
@@ -41,3 +41,6 @@ flutter build apk --debug && adb install -r build/app/outputs/flutter-apk/app-de
 
 ## Si te bloqueas
 - Si el propietario aporta otro diseño en PA-1, sustituye los paths del vector sin cambiar los nombres de archivo.
+
+## Notas de implementación
+- Icono adaptativo vectorial (sol coral sobre horizonte honey, fondo night) con capa monocroma; PNG antiguos eliminados. APK compila. PENDIENTE: capturas en emulador API 26/34 y comprobación del icono temático (no hay emulador en este entorno).

@@ -2,7 +2,7 @@
 id: E09-T03
 title: Preparar la publicación en Google Play (firma, privacidad, ficha y declaraciones)
 epic: E09
-status: todo
+status: blocked
 depends_on: [E09-T02, E08-T02]
 requirements: [RNF-06]
 size: M
@@ -51,3 +51,10 @@ git ls-files | grep -E "jks|key.properties" || echo "sin secretos"
 
 ## Si te bloqueas
 - Si PA-1 (nombre e icono) sigue abierta, usa el nombre del SUPUESTO-1 y el icono propuesto en PA-1, y anótalo.
+
+## Notas de implementación
+- Hecho: firma condicional en `android/app/build.gradle.kts` (usa `android/key.properties` si existe, si no firma con debug); `flutter build appbundle --release --dart-define=APP_VERSION=1.0.0` genera el `.aab` (58 MB); `git ls-files | grep -E "jks|key.properties"` está vacío; `docs/privacy/index.md`, `docs/release/play-listing.md` (ficha es/en y 3 declaraciones), `docs/release/icon-512.png` (dibujado desde el mismo vector) y 4 capturas de 1080 × 1920 generadas con `test/tool/store_screenshots_test.dart` (renderizado de widgets, no de un emulador).
+
+## Bloqueo
+- Falta que el propietario: genere la clave de subida y `key.properties`, active GitHub Pages en `docs/` (URL pública de la política), indique el email de contacto (hay un marcador en la política) y cierre PA-1 (nombre e icono definitivos; se usa la propuesta).
+- E09-T02 sigue pendiente y bloquea la publicación según el plan.

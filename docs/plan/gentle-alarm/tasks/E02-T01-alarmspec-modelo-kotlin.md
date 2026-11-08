@@ -2,7 +2,7 @@
 id: E02-T01
 title: Modelo AlarmSpec en Kotlin con validación y JSON
 epic: E02
-status: todo
+status: done
 depends_on: [E01-T01]
 requirements: [RF-01, RF-80]
 size: S
@@ -60,8 +60,8 @@ Campos, tipos, defaults y restricciones (`02-architecture.md` §3.1):
 | JSON sin `vibrate` | vibrate = true |
 
 ## Criterios de aceptación
-- [ ] Cada fila de la tabla tiene un test que pasa.
-- [ ] El test de ida y vuelta JSON pasa con todos los campos, incluidos los opcionales con y sin valor.
+- [x] Cada fila de la tabla tiene un test que pasa.
+- [x] El test de ida y vuelta JSON pasa con todos los campos, incluidos los opcionales con y sin valor.
 
 ## Verificación
 ```bash
@@ -73,3 +73,6 @@ cd android && ./gradlew testDebugUnitTest --tests "*AlarmSpecTest*"
 
 ## Si te bloqueas
 - Si `org.json` da `RuntimeException: Stub!` en las pruebas, falta `testImplementation("org.json:json:20240303")` (E01-T01): para y reporta.
+
+## Notas de implementación
+- AlarmSpec con validate/toJson/fromJson y InvalidSpecException; AlarmSpecTest cubre cada fila de casos límite y ida y vuelta JSON. Nota: con módulos de plugins hay que usar `./gradlew :app:testDebugUnitTest --tests ...` (el filtro sin :app falla en subproyectos sin tests). Tests escritos junto a la implementación (sin ejecución RED separada).

@@ -1,0 +1,252 @@
+{
+  "@@locale": "en",
+  "appTitle": "Gentle Alarm",
+  "appTagline": "Wake up with light, not with a fright",
+  "soundBirdsDawn": "Dawn birds",
+  "soundSoftWaves": "Soft waves",
+  "soundLightRain": "Light rain",
+  "soundChimes": "Chimes",
+  "soundCalmPiano": "Calm piano",
+  "soundSingingBowls": "Singing bowls",
+  "soundCustom": "From my phone: {name}",
+  "alarmsTitle": "Alarms",
+  "emptyTitle": "No alarms yet",
+  "emptyBody": "Create your first one and wake up calmly.",
+  "createAlarm": "Create alarm",
+  "nextAlarm": "Next: {when} ({inDuration})",
+  "@nextAlarm": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      },
+      "inDuration": {
+        "type": "String"
+      }
+    }
+  },
+  "noActiveAlarms": "No alarms on",
+  "todayAt": "today at {time}",
+  "@todayAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tomorrowAt": "tomorrow at {time}",
+  "@tomorrowAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "weekdayAt": "on {weekday} at {time}",
+  "@weekdayAt": {
+    "placeholders": {
+      "weekday": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "inHoursMinutes": "in {h} h {m} min",
+  "@inHoursMinutes": {
+    "placeholders": {
+      "h": {
+        "type": "int"
+      },
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "inMinutes": "in {m} min",
+  "@inMinutes": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "inLessThanMinute": "in less than 1 min",
+  "everyDay": "Every day",
+  "weekdaysOnly": "Weekdays",
+  "weekendsOnly": "Weekends",
+  "onceOnly": "Once",
+  "defaultLabel": "Alarm",
+  "settingsTooltip": "Settings",
+  "settingsTitle": "Settings",
+  "forNewAlarms": "For new alarms",
+  "weatherSection": "Weather",
+  "aboutSection": "About",
+  "aboutVersion": "Version {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "weatherAttribution": "Weather data: Open-Meteo.com",
+  "sound": "Sound",
+  "sunrise": "Sunrise before ringing",
+  "noSunrise": "No sunrise",
+  "minutesShort": "{m} min",
+  "@minutesShort": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "ramp": "Volume fade-in",
+  "maxVolume": "Maximum volume",
+  "vibration": "Gentle vibration",
+  "weatherCity": "City for the weather",
+  "weatherCityNone": "No city · the greeting won't show the weather",
+  "citySearchHint": "Search your city",
+  "citySearchStart": "Type at least 2 letters",
+  "citySearchEmpty": "We couldn't find that city",
+  "cityRemove": "Remove",
+  "newAlarm": "New alarm",
+  "editAlarm": "Edit alarm",
+  "save": "Save",
+  "labelHint": "Label (optional)",
+  "repeat": "Repeat",
+  "willRingIn": "Will ring {inDuration}",
+  "@willRingIn": {
+    "placeholders": {
+      "inDuration": {
+        "type": "String"
+      }
+    }
+  },
+  "errorScheduleFailed": "We couldn't schedule the alarm. Check the exact alarms permission.",
+  "errorGeneric": "Something went wrong. Please try again.",
+  "discardTitle": "Discard changes?",
+  "discard": "Discard",
+  "keepEditing": "Keep editing",
+  "alarmDeleted": "Alarm deleted",
+  "undo": "Undo",
+  "skipNext": "Skip next",
+  "unskipNext": "Don't skip",
+  "skippingOn": "Skipping {date}",
+  "@skippingOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteAlarm": "Delete",
+  "sunriseRingsAt": "Rings at {time}",
+  "@sunriseRingsAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "wakeEarly": "I'm already awake",
+  "keepSleeping": "Keep sleeping",
+  "swipeUpToStop": "Slide the sun up",
+  "stopAlarmA11y": "Turn off alarm",
+  "snoozeButton": "A little longer",
+  "snoozesLeftText": "{count, plural, =1{1 left} other{{count} left}}",
+  "@snoozesLeftText": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noMoreSnoozes": "No more snoozes left",
+  "confirmQuestion": "Are you awake?",
+  "confirmHint": "If you don't answer, I'll ring softly again.",
+  "confirmYes": "Yes, good morning",
+  "snoozeBackIn": "Back in {time}",
+  "@snoozeBackIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "iGetUp": "I'm getting up",
+  "soundPickerTitle": "Choose a sound",
+  "pickFromPhone": "Choose from my phone",
+  "playPreviewA11y": "Play {name}",
+  "@playPreviewA11y": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "stopPreviewA11y": "Stop",
+  "greetingTitle": "Good morning",
+  "weatherLine": "{temp} °C · {condition} in {city}",
+  "@weatherLine": {
+    "placeholders": {
+      "temp": {
+        "type": "String"
+      },
+      "condition": {
+        "type": "String"
+      },
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "startDay": "Start the day",
+  "weatherClear": "Clear",
+  "weatherPartlyCloudy": "Partly cloudy",
+  "weatherFog": "Fog",
+  "weatherDrizzle": "Drizzle",
+  "weatherRain": "Rain",
+  "weatherSnow": "Snow",
+  "weatherStorm": "Storm",
+  "greetingPhrase1": "No need to rush today. One step at a time.",
+  "greetingPhrase2": "Have a glass of water: your body will thank you.",
+  "greetingPhrase3": "Take three deep breaths before you get up.",
+  "greetingPhrase4": "What goes well today counts. The rest does too.",
+  "greetingPhrase5": "Open the window and let the day in.",
+  "greetingPhrase6": "Stretch like nobody's watching.",
+  "greetingPhrase7": "You've rested. Now, on to a good day.",
+  "greetingPhrase8": "Pick one small thing to look forward to today.",
+  "greetingPhrase9": "The light is here. So are you.",
+  "greetingPhrase10": "Slowly still gets you there.",
+  "greetingPhrase11": "Smile for a second: it's free and it works.",
+  "greetingPhrase12": "Something new starts today, even if it's small.",
+  "onbWelcomeBody": "We'll wake you gently: light first, then a soft sound.",
+  "onbStart": "Let's start",
+  "onbNotifTitle": "Alarm notifications",
+  "onbNotifBody": "We need them to show the alarm and let you turn it off from the lock screen.",
+  "onbAllow": "Allow",
+  "onbLater": "Not now",
+  "onbExactTitle": "On-time alarms",
+  "onbExactBody": "Turn on \"Alarms & reminders\" so it rings right on time.",
+  "onbFullTitle": "Full-screen sunrise",
+  "onbFullBody": "Allow full screen so the sunrise appears even when your phone is locked.",
+  "onbOpenSettings": "Open settings",
+  "onbBatteryTitle": "Don't let anything stop your alarm",
+  "onbBatteryXiaomi": "In Settings → Battery, choose \"No restrictions\" and turn on \"Autostart\".",
+  "onbBatteryHuawei": "In Settings → Battery → App launch, turn off \"Manage automatically\" and leave everything on.",
+  "onbBatteryOppo": "In Settings → Battery, allow background activity and auto-launch.",
+  "onbBatteryVivo": "In Settings → Battery → Background power consumption, allow high usage.",
+  "onbBatterySamsung": "In Settings → Battery → Background usage limits, add the app to \"Never sleeping apps\".",
+  "onbTipTitle": "A tip for tonight",
+  "onbTipBody": "Leave your phone face up and charging on your nightstand to see the sunrise.",
+  "onbDone": "Done",
+  "healthTitle": "Your alarm might not ring",
+  "healthNotif": "Alarm notifications are off.",
+  "healthExact": "On-time alarms are off.",
+  "healthFull": "Full screen for the sunrise is off.",
+  "healthFix": "Fix it",
+  "previewButton": "Try the wake-up",
+  "previewBusy": "An alarm is already ringing."
+}
