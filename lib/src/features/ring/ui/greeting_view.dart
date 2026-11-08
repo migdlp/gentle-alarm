@@ -7,6 +7,7 @@ import 'package:gentle_alarm/src/core/platform/ring_channel.dart';
 import 'package:gentle_alarm/src/core/theme/palette.dart';
 import 'package:gentle_alarm/src/core/time/clock.dart';
 import 'package:gentle_alarm/src/core/time/format.dart';
+import 'package:gentle_alarm/src/core/widgets/scroll_body.dart';
 import 'package:gentle_alarm/src/features/greeting/domain/phrase_picker.dart';
 import 'package:gentle_alarm/src/features/greeting/domain/weather_text.dart';
 import 'package:gentle_alarm/src/features/greeting/state/weather_providers.dart';
@@ -55,50 +56,61 @@ class _GreetingViewState extends ConsumerState<GreetingView> {
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(height: 24),
-              Text(
-                l10n.greetingTitle,
-                style: ink.copyWith(fontSize: 32, fontWeight: FontWeight.w700),
-              ),
-              Text(
-                formatTime(context, now.hour, now.minute),
-                style: ink.copyWith(fontSize: 72, fontWeight: FontWeight.w600),
-              ),
-              if (weather != null && condition != null)
+          child: ScrollBody(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 24),
                 Text(
-                  l10n.weatherLine(
-                    '${weather.temperatureC.round()}',
-                    condition,
-                    weather.cityName,
+                  l10n.greetingTitle,
+                  style: ink.copyWith(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w700,
                   ),
-                  style: ink.copyWith(fontSize: 18),
                 ),
-              const SizedBox(height: 24),
-              Opacity(
-                opacity: 0.85,
-                child: Text(
-                  greetingPhrase(l10n, _phrase),
-                  textAlign: TextAlign.center,
-                  style: ink.copyWith(fontSize: 20),
-                ),
-              ),
-              const Spacer(),
-              SizedBox(
-                width: double.infinity,
-                height: 64,
-                child: FilledButton(
-                  style: FilledButton.styleFrom(
-                    backgroundColor: Palette.accent,
-                    foregroundColor: Palette.cream,
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    formatTime(context, now.hour, now.minute),
+                    style: ink.copyWith(
+                      fontSize: 72,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  onPressed: ref.read(ringChannelProvider).finishGreeting,
-                  child: Text(l10n.startDay),
                 ),
-              ),
-            ],
+                if (weather != null && condition != null)
+                  Text(
+                    l10n.weatherLine(
+                      '${weather.temperatureC.round()}',
+                      condition,
+                      weather.cityName,
+                    ),
+                    style: ink.copyWith(fontSize: 18),
+                  ),
+                const SizedBox(height: 24),
+                Opacity(
+                  opacity: 0.85,
+                  child: Text(
+                    greetingPhrase(l10n, _phrase),
+                    textAlign: TextAlign.center,
+                    style: ink.copyWith(fontSize: 20),
+                  ),
+                ),
+                const Spacer(),
+                SizedBox(
+                  width: double.infinity,
+                  height: 64,
+                  child: FilledButton(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: Palette.accent,
+                      foregroundColor: Palette.inkOnLight,
+                    ),
+                    onPressed: ref.read(ringChannelProvider).finishGreeting,
+                    child: Text(l10n.startDay),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

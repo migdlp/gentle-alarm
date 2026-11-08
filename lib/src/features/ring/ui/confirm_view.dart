@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gentle_alarm/l10n/gen/app_localizations.dart';
 import 'package:gentle_alarm/src/core/platform/ring_channel.dart';
 import 'package:gentle_alarm/src/core/theme/palette.dart';
+import 'package:gentle_alarm/src/core/widgets/scroll_body.dart';
 import 'package:gentle_alarm/src/features/ring/domain/sunrise.dart';
 
 class ConfirmView extends ConsumerWidget {
@@ -23,47 +24,49 @@ class ConfirmView extends ConsumerWidget {
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                l10n.confirmQuestion,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Palette.inkOnLight,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Opacity(
-                opacity: 0.7,
-                child: Text(
-                  l10n.confirmHint,
+          child: ScrollBody(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  l10n.confirmQuestion,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Palette.inkOnLight,
-                    fontSize: 16,
+                    fontSize: 32,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
-              ),
-              const SizedBox(height: 48),
-              SizedBox(
-                width: double.infinity,
-                height: 72,
-                child: FilledButton(
-                  style: FilledButton.styleFrom(
-                    backgroundColor: Palette.accent,
-                    foregroundColor: Palette.cream,
-                  ),
-                  onPressed: ref.read(ringChannelProvider).confirmAwake,
+                const SizedBox(height: 12),
+                Opacity(
+                  opacity: 0.7,
                   child: Text(
-                    l10n.confirmYes,
-                    style: const TextStyle(fontSize: 20),
+                    l10n.confirmHint,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Palette.inkOnLight,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 48),
+                SizedBox(
+                  width: double.infinity,
+                  height: 72,
+                  child: FilledButton(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: Palette.accent,
+                      foregroundColor: Palette.inkOnLight,
+                    ),
+                    onPressed: ref.read(ringChannelProvider).confirmAwake,
+                    child: Text(
+                      l10n.confirmYes,
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

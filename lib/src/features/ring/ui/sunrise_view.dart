@@ -76,13 +76,16 @@ class SunriseView extends ConsumerWidget {
           ),
         ),
         child: Center(
-          child: Text(
-            time,
-            style: const TextStyle(
-              fontSize: 72,
-              fontWeight: FontWeight.w600,
-              color: Color(0x1AFFFFFF),
-              fontFamily: 'Nunito',
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              time,
+              style: const TextStyle(
+                fontSize: 72,
+                fontWeight: FontWeight.w600,
+                color: Color(0x1AFFFFFF),
+                fontFamily: 'Nunito',
+              ),
             ),
           ),
         ),

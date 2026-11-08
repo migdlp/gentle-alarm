@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gentle_alarm/l10n/gen/app_localizations.dart';
 import 'package:gentle_alarm/src/core/platform/system_channel.dart';
+import 'package:gentle_alarm/src/core/widgets/scroll_body.dart';
 import 'package:gentle_alarm/src/features/alarms/ui/alarm_list_screen.dart';
 import 'package:gentle_alarm/src/features/onboarding/domain/onboarding_steps.dart';
 import 'package:gentle_alarm/src/features/permissions/domain/permission_status.dart';
@@ -129,31 +130,37 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Spacer(),
-              const Icon(Icons.wb_twilight, size: 96, color: Color(0xFFFF7A3D)),
-              const SizedBox(height: 24),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
-              const SizedBox(height: 16),
-              Text(
-                body,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              const Spacer(),
-              FilledButton(onPressed: onPrimary, child: Text(primary)),
-              if (secondary != null)
-                TextButton(
-                  onPressed: isLast ? _finish : _next,
-                  child: Text(secondary),
+          child: ScrollBody(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Spacer(),
+                const Icon(
+                  Icons.wb_twilight,
+                  size: 96,
+                  color: Color(0xFFFF7A3D),
                 ),
-            ],
+                const SizedBox(height: 24),
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  body,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                const Spacer(),
+                FilledButton(onPressed: onPrimary, child: Text(primary)),
+                if (secondary != null)
+                  TextButton(
+                    onPressed: isLast ? _finish : _next,
+                    child: Text(secondary),
+                  ),
+              ],
+            ),
           ),
         ),
       ),

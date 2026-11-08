@@ -81,15 +81,15 @@ void main() {
 
   testWidgets('tocar «Un ratito más» llama a snooze', (tester) async {
     final h = await pump(tester);
-    await tester.tap(find.text('Un ratito más'));
+    await tester.tap(find.byType(OutlinedButton));
     expect(calls, ['snooze']);
-    expect(find.text('Quedan 3'), findsOneWidget);
+    expect(find.textContaining('Quedan 3', findRichText: true), findsOneWidget);
     h.dispose();
   });
 
   testWidgets('sin posposiciones no hay botón', (tester) async {
     final h = await pump(tester, snoozes: 0);
-    expect(find.text('Un ratito más'), findsNothing);
+    expect(find.byType(OutlinedButton), findsNothing);
     expect(find.text('Ya no quedan más ratitos'), findsOneWidget);
     h.dispose();
   });

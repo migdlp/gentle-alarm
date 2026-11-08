@@ -124,7 +124,8 @@ class _Header extends StatelessWidget {
     child: Text(
       text,
       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-        color: Theme.of(context).colorScheme.primary,
+        color: Theme.of(context).colorScheme.onSurface,
+        fontWeight: FontWeight.w700,
       ),
     ),
   );
