@@ -170,5 +170,17 @@
       }
     }
   },
-  "noMoreSnoozes": "Ya no quedan más ratitos"
+  "noMoreSnoozes": "Ya no quedan más ratitos",
+  "confirmQuestion": "¿Ya estás despierto/a?",
+  "confirmHint": "Si no respondes, volveré a sonar bajito.",
+  "confirmYes": "Sí, buenos días",
+  "snoozeBackIn": "Vuelvo en {time}",
+  "@snoozeBackIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "iGetUp": "Ya me levanto"
 }

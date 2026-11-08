@@ -163,5 +163,17 @@
       }
     }
   },
-  "noMoreSnoozes": "No more snoozes left"
+  "noMoreSnoozes": "No more snoozes left",
+  "confirmQuestion": "Are you awake?",
+  "confirmHint": "If you don't answer, I'll ring softly again.",
+  "confirmYes": "Yes, good morning",
+  "snoozeBackIn": "Back in {time}",
+  "@snoozeBackIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "iGetUp": "I'm getting up"
 }

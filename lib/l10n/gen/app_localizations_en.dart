@@ -254,4 +254,21 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noMoreSnoozes => 'No more snoozes left';
+
+  @override
+  String get confirmQuestion => 'Are you awake?';
+
+  @override
+  String get confirmHint => 'If you don\'t answer, I\'ll ring softly again.';
+
+  @override
+  String get confirmYes => 'Yes, good morning';
+
+  @override
+  String snoozeBackIn(String time) {
+    return 'Back in $time';
+  }
+
+  @override
+  String get iGetUp => 'I\'m getting up';
 }

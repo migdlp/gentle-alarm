@@ -523,6 +523,36 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Ya no quedan más ratitos'**
   String get noMoreSnoozes;
+
+  /// No description provided for @confirmQuestion.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Ya estás despierto/a?'**
+  String get confirmQuestion;
+
+  /// No description provided for @confirmHint.
+  ///
+  /// In es, this message translates to:
+  /// **'Si no respondes, volveré a sonar bajito.'**
+  String get confirmHint;
+
+  /// No description provided for @confirmYes.
+  ///
+  /// In es, this message translates to:
+  /// **'Sí, buenos días'**
+  String get confirmYes;
+
+  /// No description provided for @snoozeBackIn.
+  ///
+  /// In es, this message translates to:
+  /// **'Vuelvo en {time}'**
+  String snoozeBackIn(String time);
+
+  /// No description provided for @iGetUp.
+  ///
+  /// In es, this message translates to:
+  /// **'Ya me levanto'**
+  String get iGetUp;
 }
 
 class _AppLocalizationsDelegate

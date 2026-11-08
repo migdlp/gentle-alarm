@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gentle_alarm/src/features/alarms/data/alarm_repository.dart';
 import 'package:gentle_alarm/src/features/alarms/domain/alarm.dart';
 
-final clockProvider = Provider<DateTime Function()>((ref) => DateTime.now);
+export 'package:gentle_alarm/src/core/time/clock.dart';
 
 List<Alarm> _sorted(Iterable<Alarm> alarms) => alarms.toList()
   ..sort((a, b) {

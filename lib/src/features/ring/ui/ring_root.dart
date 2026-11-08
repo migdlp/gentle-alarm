@@ -4,17 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gentle_alarm/src/core/platform/ring_channel.dart';
+import 'package:gentle_alarm/src/core/time/clock.dart';
 import 'package:gentle_alarm/src/features/ring/domain/ring_session.dart';
 import 'package:gentle_alarm/src/features/ring/domain/sunrise.dart';
 import 'package:gentle_alarm/src/features/ring/state/brightness_override.dart';
 import 'package:gentle_alarm/src/features/ring/state/ring_controller.dart';
+import 'package:gentle_alarm/src/features/ring/ui/confirm_view.dart';
 import 'package:gentle_alarm/src/features/ring/ui/ringing_view.dart';
+import 'package:gentle_alarm/src/features/ring/ui/snoozed_view.dart';
 import 'package:gentle_alarm/src/features/ring/ui/sunrise_view.dart';
 
 class RingRoot extends ConsumerStatefulWidget {
-  const RingRoot({super.key, this.clock = DateTime.now});
-
-  final DateTime Function() clock;
+  const RingRoot({super.key});
 
   @override
   ConsumerState<RingRoot> createState() => _RingRootState();
@@ -29,9 +30,9 @@ class _RingRootState extends ConsumerState<RingRoot> {
   @override
   void initState() {
     super.initState();
-    _now = widget.clock();
+    _now = ref.read(clockProvider)();
     _timer = Timer.periodic(const Duration(milliseconds: 500), (_) {
-      _now = widget.clock();
+      _now = ref.read(clockProvider)();
       _syncBrightness();
       if (mounted) setState(() {});
     });
@@ -82,6 +83,10 @@ class _RingRootState extends ConsumerState<RingRoot> {
       body = SunriseView(session: session, now: _now);
     } else if (session.state == RingState.ringing) {
       body = RingingView(session: session, now: _now);
+    } else if (session.state == RingState.confirming) {
+      body = const ConfirmView();
+    } else if (session.state == RingState.snoozed) {
+      body = SnoozedView(session: session);
     } else {
       body = Center(
         child: Text(
@@ -92,7 +97,13 @@ class _RingRootState extends ConsumerState<RingRoot> {
     }
     return PopScope(
       canPop: false,
-      child: Scaffold(backgroundColor: Colors.black, body: body),
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 600),
+          child: KeyedSubtree(key: ValueKey(session?.state), child: body),
+        ),
+      ),
     );
   }
 }
