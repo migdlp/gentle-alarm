@@ -2,7 +2,7 @@
 id: E04-T03
 title: Reproductor de alarma con rampa, fundido, foco de audio, volumen del sistema y vibración
 epic: E04
-status: todo
+status: done
 depends_on: [E04-T02]
 requirements: [RF-20, RF-22, RF-26, RF-84]
 size: M
@@ -34,9 +34,9 @@ size: M
 5. Compila. La prueba manual completa se hace en E04-T04.
 
 ## Criterios de aceptación
-- [ ] `RampSchedulerTest` pasa.
-- [ ] `AlarmAudioPlayer.release()` restaura `STREAM_ALARM` al valor previo (revisión de código; se comprueba a mano en E04-T04).
-- [ ] La app compila.
+- [x] `RampSchedulerTest` pasa.
+- [x] `AlarmAudioPlayer.release()` restaura `STREAM_ALARM` al valor previo (revisión de código; se comprueba a mano en E04-T04).
+- [x] La app compila.
 
 ## Verificación
 ```bash
@@ -49,3 +49,6 @@ flutter build apk --debug
 
 ## Si te bloqueas
 - Si `setStreamVolume` lanza `SecurityException` en No molestar (ocurre en algunos dispositivos con la política de acceso a No molestar), captúrala, registra un log y continúa sin cambiar el volumen.
+
+## Notas de implementación
+- RampScheduler (4 tests OK), AlarmAudioPlayer (USAGE_ALARM, foco GAIN_TRANSIENT, volumen del flujo de alarma fijado/restaurado, fallback a birds_dawn si falla un URI propio, SecurityException capturada) y GentleVibrator. Compila. Pendiente manual en dispositivo: E04-T04.
