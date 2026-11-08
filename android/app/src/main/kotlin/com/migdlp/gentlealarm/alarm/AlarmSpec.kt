@@ -62,6 +62,25 @@ data class AlarmSpec(
         put("createdAtEpochMs", createdAtEpochMs)
     }
 
+    fun toMap(): Map<String, Any?> = mapOf(
+        "id" to id,
+        "enabled" to enabled,
+        "hour" to hour,
+        "minute" to minute,
+        "weekdays" to weekdays,
+        "label" to label,
+        "soundId" to soundId,
+        "customSoundUri" to customSoundUri,
+        "customSoundName" to customSoundName,
+        "sunriseMinutes" to sunriseMinutes,
+        "rampMinutes" to rampMinutes,
+        "maxVolumePercent" to maxVolumePercent,
+        "vibrate" to vibrate,
+        "skipRingAtEpochMs" to skipRingAtEpochMs,
+        "scheduledRingAtEpochMs" to scheduledRingAtEpochMs,
+        "createdAtEpochMs" to createdAtEpochMs,
+    )
+
     companion object {
         val SOUND_IDS = setOf(
             "birds_dawn", "soft_waves", "light_rain", "chimes",
@@ -75,6 +94,30 @@ data class AlarmSpec(
 
         private fun JSONObject.lng(k: String): Long? =
             if (isNull(k)) null else getLong(k)
+
+        fun fromMap(m: Map<*, *>): AlarmSpec {
+            val d = AlarmSpec(id = "")
+            fun int(k: String, def: Int) = (m[k] as? Number)?.toInt() ?: def
+            fun lng(k: String) = (m[k] as? Number)?.toLong()
+            return AlarmSpec(
+                id = m["id"] as? String ?: "",
+                enabled = m["enabled"] as? Boolean ?: d.enabled,
+                hour = int("hour", d.hour),
+                minute = int("minute", d.minute),
+                weekdays = (m["weekdays"] as? List<*>)?.map { (it as Number).toInt() } ?: d.weekdays,
+                label = m["label"] as? String ?: d.label,
+                soundId = m["soundId"] as? String ?: d.soundId,
+                customSoundUri = m["customSoundUri"] as? String,
+                customSoundName = m["customSoundName"] as? String,
+                sunriseMinutes = int("sunriseMinutes", d.sunriseMinutes),
+                rampMinutes = int("rampMinutes", d.rampMinutes),
+                maxVolumePercent = int("maxVolumePercent", d.maxVolumePercent),
+                vibrate = m["vibrate"] as? Boolean ?: d.vibrate,
+                skipRingAtEpochMs = lng("skipRingAtEpochMs"),
+                scheduledRingAtEpochMs = lng("scheduledRingAtEpochMs"),
+                createdAtEpochMs = lng("createdAtEpochMs") ?: d.createdAtEpochMs,
+            )
+        }
 
         fun fromJson(o: JSONObject): AlarmSpec {
             val d = AlarmSpec(id = o.optString("id", ""))

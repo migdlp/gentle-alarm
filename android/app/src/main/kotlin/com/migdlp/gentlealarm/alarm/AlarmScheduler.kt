@@ -52,7 +52,9 @@ class AlarmScheduler(
 ) {
     /** Programa o cancela la alarma y guarda `scheduledRingAtEpochMs`. Devuelve la alarma guardada. */
     @Synchronized
-    fun reschedule(spec: AlarmSpec): AlarmSpec {
+    fun reschedule(input: AlarmSpec): AlarmSpec {
+        val skip = input.skipRingAtEpochMs
+        val spec = if (skip != null && skip <= clock()) input.copy(skipRingAtEpochMs = null) else input
         if (!spec.enabled) {
             port.cancel(spec.id)
             return spec.copy(scheduledRingAtEpochMs = null).also { store.upsert(it) }
