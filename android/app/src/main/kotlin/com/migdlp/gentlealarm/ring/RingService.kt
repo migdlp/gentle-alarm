@@ -93,6 +93,7 @@ class RingService : Service(), AlarmAudioPlayer.Listener {
 
     private fun setup(req: RingRequest, m: RingSessionMachine) {
         request = req
+        notifications.quietSunrise = req.quietSunrise
         machine = m
         acquireWakeLock()
         dispatcher = EffectDispatcher(

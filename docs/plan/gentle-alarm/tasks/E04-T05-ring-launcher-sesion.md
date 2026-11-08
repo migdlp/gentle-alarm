@@ -2,7 +2,7 @@
 id: E04-T05
 title: RingLauncher que inicia y cierra sesiones (absorción, batería baja, móvil en uso)
 epic: E04
-status: todo
+status: done
 depends_on: [E04-T04]
 requirements: [RF-06, RF-15, RF-16, RF-44, RF-45, RF-81, RF-82, RF-83]
 size: M
@@ -57,3 +57,6 @@ flutter build apk --debug
 
 ## Si te bloqueas
 - Si `startForegroundService` desde `AlarmReceiver` falla en API 31+, comprueba que se llama desde el `onReceive` del disparo de `setAlarmClock` (exento); si no, para y reporta el stacktrace.
+
+## Notas de implementación
+- LaunchDecision (10 tests) y SessionEndHandler (4 tests) puros; RingLauncher real (batería, desbloqueo, interactividad), AlarmScheduler.scheduleFireAt, amanecer silencioso en RingNotifications/RingService y strings es/en. Las alarmas absorbidas pasan por SessionEndHandler (una sola vez se desactiva en vez de reprogramarse al día siguiente). PENDIENTE manual: paso 5 (dos alarmas seguidas) en dispositivo.

@@ -65,6 +65,14 @@ class AlarmScheduler(
         return spec.copy(scheduledRingAtEpochMs = next.ringAtEpochMs).also { store.upsert(it) }
     }
 
+    /** Reprograma el disparo exactamente en T (usado cuando hay otra sesión activa). */
+    @Synchronized
+    fun scheduleFireAt(spec: AlarmSpec, fireAt: Long, ringAt: Long) {
+        if (!port.canScheduleExact()) throw ScheduleFailedException("exact alarms not allowed")
+        port.set(fireAt, spec.id, ringAt)
+        store.upsert(spec.copy(scheduledRingAtEpochMs = ringAt))
+    }
+
     @Synchronized
     fun cancel(alarmId: String) = port.cancel(alarmId)
 

@@ -9,4 +9,6 @@
     <string name="ring_title_snoozed">Un ratito más · vuelve a las %1$s</string>
     <string name="action_dismiss">Apagar</string>
     <string name="action_snooze">Un ratito más</string>
+    <string name="ring_title_sunrise_quiet">Amanecer en curso · Suena a las %1$s</string>
+    <string name="action_view_sunrise">Ver amanecer</string>
 </resources>

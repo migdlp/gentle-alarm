@@ -9,4 +9,6 @@
     <string name="ring_title_snoozed">A little longer · back at %1$s</string>
     <string name="action_dismiss">Turn off</string>
     <string name="action_snooze">A little longer</string>
+    <string name="ring_title_sunrise_quiet">Sunrise in progress · Rings at %1$s</string>
+    <string name="action_view_sunrise">View sunrise</string>
 </resources>

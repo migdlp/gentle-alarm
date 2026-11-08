@@ -15,6 +15,8 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 class RingNotifications(private val context: Context) : SessionNotifierPort {
+    var quietSunrise = false
+
     private val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
     init {
@@ -44,8 +46,9 @@ class RingNotifications(private val context: Context) : SessionNotifierPort {
         )
 
     fun build(s: SessionSnapshot): Notification {
+        val quiet = quietSunrise && s.state == "sunrise"
         val title = when (s.state) {
-            "sunrise" -> context.getString(R.string.ring_title_sunrise, hhmm(s.ringAtEpochMs))
+            "sunrise" -> if (quiet) context.getString(R.string.ring_title_sunrise_quiet, hhmm(s.ringAtEpochMs)) else context.getString(R.string.ring_title_sunrise, hhmm(s.ringAtEpochMs))
             "snoozed" -> context.getString(
                 R.string.ring_title_snoozed, hhmm(s.snoozeUntilEpochMs ?: s.ringAtEpochMs),
             )
@@ -66,8 +69,9 @@ class RingNotifications(private val context: Context) : SessionNotifierPort {
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setContentIntent(full)
-            .setFullScreenIntent(full, true)
             .addAction(0, context.getString(R.string.action_dismiss), servicePi(RingService.ACTION_DISMISS, 1))
+        if (!quiet) b.setFullScreenIntent(full, true)
+        if (quiet) b.addAction(0, context.getString(R.string.action_view_sunrise), full)
         if (s.state == "ringing" && s.snoozesLeft > 0) {
             b.addAction(0, context.getString(R.string.action_snooze), servicePi(RingService.ACTION_SNOOZE, 2))
         }
