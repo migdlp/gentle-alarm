@@ -15,16 +15,18 @@ import com.migdlp.gentlealarm.alarm.AndroidAlarmClockPort
 class DebugScheduleReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val seconds = intent.getIntExtra("seconds", 90)
+        val sunrise = intent.getIntExtra("sunrise", 0)
         val ringAt = System.currentTimeMillis() + seconds * 1000L
         val spec = AlarmSpec(
             id = "debug",
-            sunriseMinutes = 0,
+            sunriseMinutes = sunrise,
             rampMinutes = 1,
             vibrate = false,
             scheduledRingAtEpochMs = ringAt,
         )
         AlarmStore.from(context).upsert(spec)
-        AndroidAlarmClockPort(context).set(ringAt, spec.id, ringAt)
-        Log.i("DebugSchedule", "alarma debug programada ringAt=$ringAt (en $seconds s)")
+        // Como el programador real: el disparo es al empezar el amanecer, no a la hora.
+        AndroidAlarmClockPort(context).set(ringAt - sunrise * 60_000L, spec.id, ringAt)
+        Log.i("DebugSchedule", "alarma debug programada ringAt=$ringAt (en $seconds s, amanecer $sunrise min)")
     }
 }
