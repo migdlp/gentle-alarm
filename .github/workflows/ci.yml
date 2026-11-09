@@ -64,4 +64,33 @@ jobs:
           api-level: 34
           target: google_apis
           arch: x86_64
-          script: flutter test integration_test
+          script: |
+            flutter test integration_test/alarm_crud_test.dart
+            flutter build apk --debug
+            adb install -r build/app/outputs/flutter-apk/app-debug.apk
+            adb shell am start -n com.migdlp.gentlealarm/.MainActivity
+            sleep 10
+            adb shell input keyevent KEYCODE_HOME
+            adb shell am broadcast -n com.migdlp.gentlealarm/.debug.DebugScheduleReceiver --ei seconds 150 --ei sunrise 1
+            sleep 5
+            adb shell am kill com.migdlp.gentlealarm
+            adb shell pidof com.migdlp.gentlealarm || echo "proceso muerto (como en segundo plano sin memoria)"
+            adb shell input keyevent KEYCODE_SLEEP
+            adb shell dumpsys deviceidle force-idle
+            adb shell dumpsys alarm | grep -B1 -A3 gentlealarm > alarm_antes.txt || true
+            sleep 175
+            adb logcat -d > logcat.txt
+            adb shell dumpsys audio > audio.txt
+            grep -E "DebugSchedule|RingLauncher|AlarmReceiver|RingService|AlarmAudioPlayer|FATAL EXCEPTION|AndroidRuntime" logcat.txt || true
+            grep -q "RingLauncher.*FIRE.*skipSunrise=false" logcat.txt
+            grep -q "RingLauncher.*FIRE" logcat.txt
+            grep "AudioPlaybackConfiguration" audio.txt | grep "USAGE_ALARM" | grep -q "state:started"
+      - name: Subir diagnóstico del emulador
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostico-alarma
+          path: |
+            logcat.txt
+            audio.txt
+            alarm_antes.txt
