@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Necesario para que la herramienta de Flutter se comunique con la app en desarrollo. -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <application>
         <!-- Solo en builds de debug: programa una alarma real para diagnóstico en CI. -->
         <receiver
