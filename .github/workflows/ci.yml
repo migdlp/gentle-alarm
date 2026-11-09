@@ -66,13 +66,20 @@ jobs:
           arch: x86_64
           script: |
             flutter test integration_test/alarm_crud_test.dart
-            flutter test integration_test/alarm_fires_test.dart --no-uninstall
-            adb shell pidof com.migdlp.gentlealarm || echo "app no está en ejecución (en segundo plano/cerrada)"
-            sleep 215
+            flutter build apk --debug
+            adb install -r build/app/outputs/flutter-apk/app-debug.apk
+            adb shell am start -n com.migdlp.gentlealarm/.MainActivity
+            sleep 10
+            adb shell input keyevent KEYCODE_HOME
+            adb shell am broadcast -n com.migdlp.gentlealarm/.debug.DebugScheduleReceiver --ei seconds 90
+            sleep 5
+            adb shell am kill com.migdlp.gentlealarm
+            adb shell pidof com.migdlp.gentlealarm || echo "proceso muerto (como en segundo plano sin memoria)"
+            adb shell dumpsys alarm | grep -B1 -A3 gentlealarm > alarm_antes.txt || true
+            sleep 130
             adb logcat -d > logcat.txt
             adb shell dumpsys audio > audio.txt
-            adb shell dumpsys alarm | grep -B1 -A4 gentlealarm > alarm.txt || true
-            grep -E "RingLauncher|AlarmReceiver|RingService|AlarmAudioPlayer|FATAL EXCEPTION|AndroidRuntime" logcat.txt || true
+            grep -E "DebugSchedule|RingLauncher|AlarmReceiver|RingService|AlarmAudioPlayer|FATAL EXCEPTION|AndroidRuntime" logcat.txt || true
             grep -q "RingLauncher.*FIRE" logcat.txt
             grep "AudioPlaybackConfiguration" audio.txt | grep "USAGE_ALARM" | grep -q "state:started"
       - name: Subir diagnóstico del emulador
@@ -83,4 +90,4 @@ jobs:
           path: |
             logcat.txt
             audio.txt
-            alarm.txt
+            alarm_antes.txt
