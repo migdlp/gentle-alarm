@@ -66,7 +66,7 @@ jobs:
           arch: x86_64
           script: |
             flutter test integration_test/alarm_crud_test.dart
-            flutter test integration_test/alarm_fires_test.dart
+            flutter test integration_test/alarm_fires_test.dart --no-uninstall
             adb shell pidof com.migdlp.gentlealarm || echo "app no está en ejecución (en segundo plano/cerrada)"
             sleep 215
             adb logcat -d > logcat.txt
